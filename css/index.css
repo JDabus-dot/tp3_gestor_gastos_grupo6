@@ -7,7 +7,7 @@
 
 .header{
     padding: var(--space-m);
-    text-align: center;
+    text-align: flex-start;
     background-color: var(--color-superficie);
     border-bottom: 1px;
 }
