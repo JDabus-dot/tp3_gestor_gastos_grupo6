@@ -1,5 +1,5 @@
 // Se pasa objeto gasto con los siguientes campos: { nombre, categoria, monto, fecha }
-function guardarGasto(gasto) {
+export function guardarGasto(gasto) {
   const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
   const esta = gastos.some(
     (g) =>
@@ -14,11 +14,11 @@ function guardarGasto(gasto) {
   }
 }
 
-function obtenerGastos() {
+export function obtenerGastos() {
   return JSON.parse(localStorage.getItem("gastos")) || [];
 }
 
-function guardarCategoria(categoria) {
+export function guardarCategoria(categoria) {
   const categorias = JSON.parse(localStorage.getItem("categorias")) || [];
   if (!categorias.includes(categoria)) {
     categorias.push(categoria);
@@ -26,11 +26,11 @@ function guardarCategoria(categoria) {
   }
 }
 
-function obtenerCategorias() {
+export function obtenerCategorias() {
   return JSON.parse(localStorage.getItem("categorias")) || [];
 }
 
-function eliminarGasto(gasto) {
+export function eliminarGasto(gasto) {
   const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
   const gastosFiltrados = gastos.filter(
     (g) =>
@@ -43,6 +43,6 @@ function eliminarGasto(gasto) {
 }
 
 // Recibe un array de objetos gasto y devuelve el total de los montos
-function calcularTotalGastos(gastos) {
+export function calcularTotalGastos(gastos) {
   return gastos.reduce((total, gasto) => (total += gasto.monto), 0);
 }
