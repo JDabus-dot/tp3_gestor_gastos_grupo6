@@ -1,0 +1,18 @@
+.btn {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0px 0px 2px 3px #E2F3FD;
+    margin: 4px;
+}
+
+.btn-m {
+    width: 400px;
+    height: 40px;
+}
+
+.btn-naranja {
+    background: #F06539;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}

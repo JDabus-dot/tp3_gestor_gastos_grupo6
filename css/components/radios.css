@@ -1,0 +1,58 @@
+.radio-button {
+   display: none;
+   appearance: none;
+   opacity: 0;
+}
+
+
+.label-radio {
+    background-color: lightgrey;
+    width: 100px;
+    height: 100px;
+    margin: 4px;
+    font-size: 60px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.label-radio:has(.radio-button:checked) {
+    border: 4px solid grey;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.radio-grande {
+    appearance: none;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;    
+}
+
+.radio-color:checked {
+   border: 4px solid black;
+} 
+
+.radio-verde {
+    background: green;
+}
+
+.radio-rojo {
+    background: red;
+}
+
+.radio-gris {
+    background: grey;
+}
+
+.radio-celeste {
+    background: lightblue;
+}
+
+.radio-azul {
+    background: blue;
+}
+
+.radio-violeta {
+    background: violet;
+}
