@@ -1,65 +1,59 @@
 @import url("style.css");
+@import url("./components/transacciones.css");
 
 * {
   margin: 0;
   padding: 0;
 }
 
-.header{
-    padding: var(--space-m);
-    text-align: flex-start;
-    background-color: var(--color-superficie);
-    border-bottom: 1px;
+.header {
+  padding: var(--space-m);
+  text-align: flex-start;
+  background-color: var(--color-superficie);
+  border-bottom: 1px;
 }
 
-.container{
-    flex: 1;
-    display: flex;
-    gap: var(--space-l);
-    padding: var(--space-l);
+.container {
+  flex: 1;
+  display: flex;
+  gap: var(--space-l);
+  padding: var(--space-l);
 }
 
 /*Sección formulario*/
-.seccion-formulario{
-    flex:1;
-    background-color: var(--color-superficie);
-    padding: var(--space-l);
-    border-radius: 10px;
+.seccion-formulario {
+  flex: 1;
+  background-color: var(--color-superficie);
+  padding: var(--space-l);
+  border-radius: 10px;
 }
 
 /*Sección lista*/
-.seccion-lista{
-    flex:2;
-    background-color: var(--color-superficie);
-    padding: var(--space-l);
-    border-radius: 10px;
-}
-#lista-gastos{
-    list-style: none;
-    margin-top: var(--space-l);
-}
-#lista-gastos li{
-    padding: var(--space-s);
-    border-bottom: 1px;
-}
-/*Sección resumen*/
-.seccion-resumen{
-    flex:1;
-    background-color: var(--color-superficie);
-    padding:var(--space-l);
-    border-radius: 10px;
+.seccion-lista {
+  flex: 2;
+  background-color: var(--color-superficie);
+  padding: var(--space-l);
+  border-radius: 10px;
 }
 
-.resumen-card{
-    background-color: var(--color--cuaternario);
-    padding: var(--space-m);
-    border-radius: 8px;
-    margin-bottom: var(--space-m);
+/*Sección resumen*/
+.seccion-resumen {
+  flex: 1;
+  background-color: var(--color-superficie);
+  padding: var(--space-l);
+  border-radius: 10px;
+}
+
+.resumen-card {
+  background-color: var(--color--cuaternario);
+  padding: var(--space-m);
+  border-radius: 8px;
+  margin-bottom: var(--space-m);
 }
 
 /*Responsive*/
-@media (max-width: 900px){
-    .container{
-        flex-direction: column;
-    }
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
 }
