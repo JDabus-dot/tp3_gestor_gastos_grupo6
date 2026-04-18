@@ -2,25 +2,25 @@ import { obtenerGastos } from "./funciones.js";
 //import renderde transacciones cuando este
 
 // Abrir y cerrar modal
-const btnAbrir = document.getElementById("btn-abrir-filtros");
-const btnCerrar = document.getElementById("btn-cerrar-filtros");
-const modal = document.getElementById("modal-filtros");
+const btnAbrir = $("#btn-abrir-filtros");
+const btnCerrar = $("#btn-cerrar-filtros");
+const modal = $("#modal-filtros");
 
-btnAbrir.addEventListener("click", () => {
-    modal.style.display = "flex";
+btnAbrir.click( () => {
+    modal.css("display","flex");
 });
 
-btnCerrar.addEventListener("click", () => {
-    modal.style.display = "none";
+btnCerrar.click(() => {
+    modal.css("display","none");
 });
 
 // limpiar filtros 
-const btnLimpiar = document.getElementById("btn-limpiar-filtro");
-btnLimpiar.addEventListener("click", () => {
-    document.getElementById("filtro-categoria").value = "";
-    document.getElementById("filtro-desde").value = "";
-    document.getElementById("filtro-hasta").value = "";
-    document.getElementById("filtro-texto").value = "";
+const btnLimpiar = $("#btn-limpiar-filtro");
+btnLimpiar.click(() => {
+    $("#filtro-categoria").val("");
+    $("#filtro-desde").val("");
+    $("#filtro-hasta").val("");
+    $("#filtro-texto").val("");
 
     const todos= obtenerGastos();
     renderTransacciones(todos);
@@ -29,8 +29,8 @@ btnLimpiar.addEventListener("click", () => {
 });
 
 //conectar logica con boton aplicar fltro
-const btnAplicar= document.getElementById("btn-aplicar-filtro");
-btnAplicar.addEventListener("click", () =>{
+const btnAplicar= $("#btn-aplicar-filtro");
+btnAplicar.click(() =>{
     const gastosFiltrados=filtrarGastos();
     console.log(gastosFiltrados); //solo para pruebas
     renderTransacciones(gastosFiltrados);
@@ -42,16 +42,15 @@ btnAplicar.addEventListener("click", () =>{
 function filtrarGastos(){
     const gastos= obtenerGastos();
     
-    const cat= document.getElementById("filtro-categoria").value;
-    const desde= document.getElementById("filtro-desde").value;
-    const hasta= document.getElementById("filtro-hasta").value;
-    const texto= document.getElementById("filtro-texto").value;
+    const cat= $("#filtro-categoria").val();
+    const desde= $("#filtro-desde").val();
+    const hasta= $("#filtro-hasta").val();
+    const texto= $("#filtro-texto").val();
     
     return gastos.filter(g=>{
-       
         const coincideCategoria= !cat||  g.categoria === cat;
-        const coincideDesde = !desde || fechaGasto >= fechaDesde;
-        const coincideHasta = !hasta || fechaGasto <= fechaHasta;
+        const coincideDesde = !desde || g.fecha >= desde;
+        const coincideHasta = !hasta || g.fecha <= hasta;
         const coincideTexto= !texto || g.nombre.toLowerCase().includes(texto.toLowerCase());
         return(
             coincideCategoria && coincideDesde && coincideHasta && coincideTexto
