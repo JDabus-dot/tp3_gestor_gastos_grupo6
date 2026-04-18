@@ -6,8 +6,10 @@
     1.1      ALEJANDRO L. BALDRES         FIX LIMPIEZA DE INPUT AL PRESIONAR EL BOTON DE CREAR C 
     1.2      ALEJANDRO L. BALDRES         INICIALIZACION DE CATEGORIAS
     1.3      ALEJANDRO L. BALDRES         MANIPULACION DEL JSON
+    1.4      ALEJANDRO L. BALDRES         AGREGADO DE USO DE LOCALSTORAGE
 /**************************************************************************************************/
-import { cargoJSON } from "./funciones.js";
+import { cargoJSON, obtenerCategorias, guardarCategoria, eliminarCategoria, actualizarCategoria } from "./funciones.js";
+
 
 let categoriasJSON = [];
 let contadorCategorias = 0; // Contador de Categorias Cargadas
@@ -15,15 +17,22 @@ let contadorCategorias = 0; // Contador de Categorias Cargadas
 //Este bloque de codigo se ejecuta cuando el HTML esta cargado y captura el submit del formulario y
 //el enter del input de nueva categoria
 $(document).ready(function() {
+    categoriasJSON = obtenerCategorias();
     if ( categoriasJSON.length === 0 ) {
        cargoJSON("../data/categorias.json").then(datos => {
           categoriasJSON = datos;
           if ( categoriasJSON.length != 0 ) {
             categoriasJSON.forEach(categoria => {
             creoItem(categoria.color, categoria.icono, categoria.nombre, categoria.id);
+            guardarCategoria(categoria);
            }); 
          }
        });
+    }
+    else {
+        categoriasJSON.forEach(categoria => {
+        creoItem(categoria.color, categoria.icono, categoria.nombre, categoria.id);
+        });
     }
 
     $('#formulario-categoria').on('submit', function(e) { // Atrapo la señal del submit y agrego la categoria
@@ -34,7 +43,7 @@ $(document).ready(function() {
             categoriaGasto.focus();
     });
 
-    //Si presiono enter en el input text de crear categoria creo la misma
+
     $('input-gasto').on('keypress', function(e) {
         if ( e.which === 13 || e.key === 'Enter' ) {
             e.preventDefault();
@@ -51,31 +60,43 @@ $(document).ready(function() {
         agregarCategoria();
     });
 
+    // actualizo el nombre de la categoria
     $(document).on('keypress', '.input-lista', function (e) {
         if ( e.which === 13 || e.key === 'Enter' ) {
             e.preventDefault();
-            let idJson = $(this).closest('.item-lista').find('.btn-flat').attr('identificador');
-            let indice = categoriasJSON.findIndex(categoria => categoria.id == idJson);
-            if ( indice !== -1 ) {
-                    categoriasJSON[indice].nombre = $(this).val();
-                 }
-            else {
-                    alert('Categoria no encontrada, por favor refresque la pantalla!');
-                 }                             
             $(this).blur();
-            console.log(categoriasJSON);
         }
     });
+    
+    // actualizo el nombre de la categoria cuando pierdo el foco para evitar bug ;-)
+    $(document).on('blur', '.input-lista', function() {
+        actualizarElemento($(this), categoriasJSON);
+    })
 
     //Elimino de la categoria de la lista y el json
     $(document).on('click', '.btn-flat', function() {
-        categoriasJSON = categoriasJSON.filter(categoria => categoria.id != $(this).attr('identificador'));
+        const id = $(this).attr('identificador'); 
+        
+        categoriasJSON = categoriasJSON.filter(categoria => categoria.id != id);
+        eliminarCategoria(id);
         contadorCategorias -= 1; // decremento la cantidad de categorias y cambio el label que visualiza la cantidad
         $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);  
         $(this).closest('li.item-lista').remove();
         console.log(categoriasJSON);
     });
 });
+
+function actualizarElemento(elemento, json) {
+    let idJson = elemento.closest('.item-lista').find('.btn-flat').attr('identificador');
+    let indice = categoriasJSON.findIndex(categoria => categoria.id == idJson);
+    if ( indice !== -1 ) {
+        categoriasJSON[indice].nombre = elemento.val();
+        actualizarCategoria(indice, elemento.val());
+    }
+    else {
+             alert('Categoria no encontrada, por favor refresque la pantalla!');
+         } 
+}
 
 //Funcion que valida que un texto tenga al menos 4 caracteres
 function validoInput(texto) {   
@@ -136,6 +157,7 @@ function agregarCategoria(){
                     break;
             }
             item = creoCategoriaJSON(color, icono.text(), categoriaGasto.val(), Date.now());
+            guardarCategoria(item);
             categoriasJSON.push(item);
             creoItem(item.color, item.icono, item.nombre, item.id);
             categoriaGasto.val('');
