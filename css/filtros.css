@@ -24,11 +24,16 @@
 .filtros-botones{
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: var(--space-xs);   
 }
 
-.filtros-botones button{
+.filtros-botones button {
     width: 100%;
+    font-size: 0.85rem;
+    padding: var(--space-s) var(--space-m);
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
 }
 #btn-cerrar-filtros {
     align-self: flex-end;
