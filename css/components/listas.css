@@ -18,6 +18,7 @@
 
 .item-lista:hover{
     transform: scale(1.05);
+    transition: 0.7s;
 }
 .nombre-categoria {
     flex: 1;
@@ -45,4 +46,19 @@
     font-size: 40px;
 }
 
+@media screen and (max-width: 760px) {
+    .icono-lista {
+        font-size: 20px;
+    }
+
+    .input-lista {
+        font-size: 20px;
+    }
+    
+    .lista-categorias {
+        margin: 0;
+        margin-left: var(--space-s);
+        padding: var(--space-s);
+    }
+}
 

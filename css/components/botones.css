@@ -7,17 +7,19 @@
     font-size: 20px;
 }
 
-.btn:hover{
+.btn:hover {
     transform: scale(1.05);
+    transition: 0.4s;
     cursor: pointer;
 }
 
-.btn:active{
+.btn:active {
     transform: scale(0.90);
+    transition: 0.6s;
 }
 
 .btn-w400 {
-    width: 400px;
+    width: 90%;
     height: 40px;
 }
 
@@ -62,4 +64,10 @@
 .btn-flat:hover {
     color: var(--color-superficie);
     cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .btn-w400 {
+        width: 300px;
+    }
 }
