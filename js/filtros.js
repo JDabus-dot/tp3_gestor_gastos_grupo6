@@ -14,6 +14,13 @@ btnCerrar.click(() => {
     modal.css("display","none");
 });
 
+//cierra si haces clic fuera del modal
+modal.click((e) => {
+    if (e.target.id === "modal-filtros") {
+        modal.css("display", "none");
+    }
+});
+
 // limpiar filtros 
 const btnLimpiar = $("#btn-limpiar-filtro");
 btnLimpiar.click(() => {
@@ -33,7 +40,7 @@ const btnAplicar= $("#btn-aplicar-filtro");
 btnAplicar.click(() =>{
     const gastosFiltrados=filtrarGastos();
     renderTransacciones(gastosFiltrados);
-    modal.style.display = "none";
+    modal.css("display","none");
 })
 
 //funcion filtrado
