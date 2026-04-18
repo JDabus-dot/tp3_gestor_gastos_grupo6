@@ -32,7 +32,6 @@ btnLimpiar.click(() => {
 const btnAplicar= $("#btn-aplicar-filtro");
 btnAplicar.click(() =>{
     const gastosFiltrados=filtrarGastos();
-    console.log(gastosFiltrados); //solo para pruebas
     renderTransacciones(gastosFiltrados);
     modal.style.display = "none";
 })
