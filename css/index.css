@@ -57,6 +57,7 @@
     margin-bottom: var(--space-m);
 }
 
+
 /*Responsive*/
 @media (max-width: 900px){
     .container{
