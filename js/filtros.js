@@ -1,7 +1,7 @@
 import { obtenerGastos } from "./funciones.js";
 //import renderde transacciones cuando este
 
-// Abrir y cerrar modal
+// abrir y cerrar modal
 const btnAbrir = $("#btn-abrir-filtros");
 const btnCerrar = $("#btn-cerrar-filtros");
 const modal = $("#modal-filtros");
@@ -36,7 +36,6 @@ btnAplicar.click(() =>{
     renderTransacciones(gastosFiltrados);
     modal.style.display = "none";
 })
-
 
 //funcion filtrado
 function filtrarGastos(){
