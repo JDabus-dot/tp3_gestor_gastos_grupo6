@@ -5,6 +5,7 @@
     1.0      ALEJANDRO L. BALDRES         PRIMERA VERSION                                         
     1.1      ALEJANDRO L. BALDRES         FIX LIMPIEZA DE INPUT AL PRESIONAR EL BOTON DE CREAR C 
     1.2      ALEJANDRO L. BALDRES         INICIALIZACION DE CATEGORIAS
+    1.3      ALEJANDRO L. BALDRES         MANIPULACION DEL JSON
 /**************************************************************************************************/
 import { cargoJSON } from "./funciones.js";
 
@@ -19,7 +20,7 @@ $(document).ready(function() {
           categoriasJSON = datos;
           if ( categoriasJSON.length != 0 ) {
             categoriasJSON.forEach(categoria => {
-            creo_item(categoria.color, categoria.icono, categoria.nombre, categoria.id);
+            creoItem(categoria.color, categoria.icono, categoria.nombre, categoria.id);
            }); 
          }
        });
@@ -33,6 +34,7 @@ $(document).ready(function() {
             categoriaGasto.focus();
     });
 
+    //Si presiono enter en el input text de crear categoria creo la misma
     $('input-gasto').on('keypress', function(e) {
         if ( e.which === 13 || e.key === 'Enter' ) {
             e.preventDefault();
@@ -44,8 +46,34 @@ $(document).ready(function() {
         }
     });
 
+    //Creo categoria al hacer click en el boton
     $('#btn-crear').on('click', function() {
         agregarCategoria();
+    });
+
+    $(document).on('keypress', '.input-lista', function (e) {
+        if ( e.which === 13 || e.key === 'Enter' ) {
+            e.preventDefault();
+            let idJson = $(this).closest('.item-lista').find('.btn-flat').attr('identificador');
+            let indice = categoriasJSON.findIndex(categoria => categoria.id == idJson);
+            if ( indice !== -1 ) {
+                    categoriasJSON[indice].nombre = $(this).val();
+                 }
+            else {
+                    alert('Categoria no encontrada, por favor refresque la pantalla!');
+                 }                             
+            $(this).blur();
+            console.log(categoriasJSON);
+        }
+    });
+
+    //Elimino de la categoria de la lista y el json
+    $(document).on('click', '.btn-flat', function() {
+        categoriasJSON = categoriasJSON.filter(categoria => categoria.id != $(this).attr('identificador'));
+        contadorCategorias -= 1; // decremento la cantidad de categorias y cambio el label que visualiza la cantidad
+        $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);  
+        $(this).closest('li.item-lista').remove();
+        console.log(categoriasJSON);
     });
 });
 
@@ -60,6 +88,7 @@ function validoInput(texto) {
 
 //Funcion que agrega una categoria
 function agregarCategoria(){
+    let item;
     let icono = $('#icono-t');
     let esUnico = 1;
     let colorSeleccionado = $('input[name="radio-color"]:checked').css('background-color'); // Tomo el color de fondo del boton radio seleccionado. Lo devuelve en formato rgb()
@@ -106,7 +135,9 @@ function agregarCategoria(){
                     color = "azul-grisaceo";
                     break;
             }
-            creo_item(color, icono.text(), categoriaGasto.val(), Date.now());
+            item = creoCategoriaJSON(color, icono.text(), categoriaGasto.val(), Date.now());
+            categoriasJSON.push(item);
+            creoItem(item.color, item.icono, item.nombre, item.id);
             categoriaGasto.val('');
             categoriaGasto.focus();
         }
@@ -116,7 +147,17 @@ function agregarCategoria(){
     }
 }
 
-function creo_item(color, icono, nombre, idBD) {
+function creoCategoriaJSON (color, icono, nombre, idBD) {
+    let categoria = {};
+
+    categoria.id = idBD;
+    categoria.nombre = nombre;
+    categoria.icono = icono;
+    categoria.color = color;
+
+    return categoria;
+}
+function creoItem(color, icono, nombre, idBD) {
     $('.lista-categorias').append(`<li class="item-lista ${color}">
                             <div class="icono-lista">
                                 ${icono}
