@@ -1,0 +1,24 @@
+.nombre-categoria-texto {
+    display: inline-block;
+    position: relative;
+    width: 80%;
+    }
+
+.texto {
+    width: 100%;
+    padding-left: 40px;
+    height: 40px;
+    font-weight: bold;
+}
+
+
+.texto-gris {
+    background: #C6C6C7;
+    border: none;
+}
+.icono-texto {
+    position: absolute;
+    left: 4px;
+    top: 21px;
+    font-size: 24px;
+}

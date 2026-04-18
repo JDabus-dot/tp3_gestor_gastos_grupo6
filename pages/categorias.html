@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+    <link rel="stylesheet" href="../css/categorias.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="../js/radio.js" defer></script>
+    <script src="../js/categorias.js" type="module"></script>
+</head>
+<body>
+    <main class="main">
+       <section class="seccion-crear-categoria">
+        <h3 class="titulo-chico">Configuración</h3>
+        <h1 class="titulo">Crear nueva categoria</h1>
+        <form class="formulario" id="formulario-categoria">
+            <div class="nombre-categoria-texto">
+               <label for="nombre-categoria" class="label-categoria">Nombre de la categoria</label>
+               <input type="text" name="nombre-categoria" class="texto texto-gris" id="input-gasto" placeholder="Gastos Varios">
+               <span class="icono-texto" id="icono-t">🏫</span>
+            </div>
+            <label class="seleccion-subtitulo">Seleccione un icono</label>
+            <div class="iconos">                
+               <label class="label-radio" for="educacion">
+                <input type="radio" class="radio-button" name="radios" id="educacion" value="educacion" checked>
+                 🏫
+               </label>
+               <label class="label-radio" for="comida">
+               <input type="radio" class="radio-button" name="radios" id="comida" value="comida">
+                🛒
+               </label>
+               <label class="label-radio" for="transporte">
+               <input type="radio" class="radio-button" name="radios" id="transporte" value="transporte">
+               🚕
+              </label>
+              <label class="label-radio" for="deporte">
+               <input type="radio" class="radio-button" name="radios" id="deporte" value="deporte">
+               💪
+              </label>
+              <label class="label-radio" for="casa">
+              <input type="radio" class="radio-button" name="radios" id="casa" value="casa">
+               🏠
+              </label>
+              <label class="label-radio" for="compras">
+              <input type="radio" class="radio-button" name="radios" id="compras" value="compras">
+               🛍️
+              </label>
+              <label class="label-radio" for="salidas">
+              <input type="radio" class="radio-button" name="radios" id="salidas" value="salidas">
+               🍺
+              </label>
+              <label class="label-radio" for="otrosGastos">
+               <input type="radio" class="radio-button" name="radios" id="otrosGastos" value="otrosGastos">
+               💸
+              </label>
+            </div>
+            <div class="color-categoria">
+                <input type="radio" class="radio-grande radio-color esmeralda" name="radio-color" id="verde" value="verde" checked>
+                <input type="radio" class="radio-grande radio-color naranja" name="radio-color" id="rojo" value="rojo">
+                <input type="radio" class="radio-grande radio-color marron" name="radio-color" id="gris" value="gris">
+                <input type="radio" class="radio-grande radio-color verde-azulado" name="radio-color" id="celeste" value="celeste">
+                <input type="radio" class="radio-grande radio-color naranja-suave" name="radio-color" id="azul" value="azul">
+                <input type="radio" class="radio-grande radio-color azul-grisaceo" name="radio-color" id="violeta" value="violeta">
+            </div>
+            <button class="btn btn-w400 btn-naranja" type="button" id="btn-crear">Crear Categoria</button>
+        </form>
+       </section>
+       <section class="resumen-categorias">
+        <h3 class="titulo-chico">Resumen</h3>
+        <h1 class="titulo">Categorias Actuales</h1>
+        <h4 class="subtituloi" id="cantidad-categorias">0 categorias cargadas</h4>
+        <div class="categorias">
+           <ul class="lista-categorias">
+            
+           </ul>
+        </div>
+
+       </section>
+
+
+    </main>
+</body>
+</html>
