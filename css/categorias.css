@@ -1,7 +1,13 @@
 @import "./components/radios.css";
 @import "./components/botones.css";
 @import "./components/inputs.css";
+@import "./components/listas.css";
 
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
 .seccion-crear-categoria {
     display: flex;
     flex-direction: column;
@@ -25,7 +31,35 @@
     flex-wrap: wrap;
 }
 
+.resumen-categorias {
+    width: 70%;
+}
+
 .color-categoria {
     margin-top: 16px;
     margin-bottom: 16px;
+}
+
+.verde {
+    background: green;
+}
+
+.rojo {
+    background: red;
+}
+
+.gris {
+    background: grey;
+}
+
+.celeste {
+    background: lightblue;
+}
+
+.azul {
+    background: blue;
+}
+
+.violeta {
+    background: violet;
 }
