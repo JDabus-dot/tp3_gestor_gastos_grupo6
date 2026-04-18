@@ -3,7 +3,8 @@
                                                                                                 
 /*  VERSION     AUTOR                           COMENTARIOS                                        */
 
-/*    1.0      ALEJANDRO L. BALDRES        PRIMERA VERSION                                         */
+/*    1.0      ALEJANDRO L. BALDRES         PRIMERA VERSION                                         */
+/*    1.1      ALEJANDRO L. BALDRES         FIX LIMPIEZA DE INPUT AL PRESIONAR EL BOTON DE CREAR C */
 /**************************************************************************************************/
 
 let contadorCategorias = 0; // Contador de Categorias Cargadas
@@ -48,33 +49,33 @@ function agregarCategoria(){
     let categoriaGasto = $('#input-gasto');
     let color = "";
     const colores = {                               //Genero un objeto que me almacene los colores de los botones radio
-                        verde: 'rgb(0, 128, 0)',
-                        rojo: 'rgb(255, 0, 0)',
-                        gris: 'rgb(128, 128, 128)',
-                        celeste: 'rgb(173, 216, 230)',
-                        azul: 'rgb(0, 0, 255)',
-                        violeta: 'rgb(238, 130, 238)'
+                        esmeralda: 'rgb(26, 122, 110)',
+                        naranja: 'rgb(232, 93, 53)',
+                        marron: 'rgb(201, 74, 36)',
+                        verdeAzulado: 'rgb(42, 157, 143)',
+                        naranjaSuave: 'rgb(244, 162, 97)',
+                        azulGrisaceo: 'rgb(38, 70, 83)'
                     };
 
     if ( validoInput(categoriaGasto.val()) ) { // Si hay una categoria valida cargada procedo a: primero seleccionar la clase de color y luego al armado del elemento li
         switch (colorSeleccionado) {
-            case colores.verde:
-                color = "verde";
+            case colores.esmeralda:
+                color = "esmeralda";
                 break;
-            case colores.rojo:
-                color = "rojo";
+            case colores.naranja:
+                color = "naranja";
                 break;
-            case colores.gris:
-                color = "gris";
+            case colores.marron:
+                color = "marron";
                 break;
-            case colores.celeste:
-                color = "celeste";
+            case colores.verdeAzulado:
+                color = "verde-azulado";
                 break;
-            case colores.azul:
-                color = "azul";
+            case colores.naranjaSuave:
+                color = "naranja-suave";
                 break;
-            case colores.violeta:
-                color = "violeta";
+            case colores.azulGrisaceo:
+                color = "azul-grisaceo";
                 break;
         }
         listado.append(`<li class="item-lista ${color}">
@@ -85,11 +86,13 @@ function agregarCategoria(){
                                 <input type="text" class="input-lista" value="${categoriaGasto.val()}">        
                             </div>
                             <div>
-                                <button class="btn-flat btn-fm">❌</button>                
+                                <button class="btn-flat">❌</button>                
                             </div>
                         </li>`);
         contadorCategorias += 1; // incremento la cantidad de categorias y cambio el label que visualiza la cantidad
         $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);
+        categoriaGasto.val('');
+        categoriaGasto.focus();
     } else {
         alert('El nombre de la categoria debe tener al menos 4 caracteres');
         categoriaGasto.focus();

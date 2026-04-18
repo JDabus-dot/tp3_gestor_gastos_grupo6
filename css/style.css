@@ -8,6 +8,9 @@
   --color-secundario: #e85d35;
   --color-terciario: #c94a24;
   --color-cuartenario: #fde9e3;
+  --color-quinario: #2a9d8f;
+  --color-sextario: #f4a261;
+  --color-septario: #264653;
   --color-texto: #14211e;
   --color-texto-suave: #4a6560;
   --space-xs: 4px;
@@ -33,7 +36,7 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: 'DM Mono', monospace;
     letter-spacing: 1px;
     color: var(--color-primario);

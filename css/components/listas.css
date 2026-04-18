@@ -16,6 +16,9 @@
     background-color: #E2E2E2;
 }
 
+.item-lista:hover{
+    transform: scale(1.05);
+}
 .nombre-categoria {
     flex: 1;
     margin: 0 4px;

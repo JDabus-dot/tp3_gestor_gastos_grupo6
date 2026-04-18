@@ -15,12 +15,12 @@
         <h3 class="titulo-chico">Configuración</h3>
         <h1 class="titulo">Crear nueva categoria</h1>
         <form class="formulario" id="formulario-categoria">
-            <label for="nombre-categoria">Nombre de la categoria</label>
             <div class="nombre-categoria-texto">
-                <input type="text" name="nombre-categoria" class="texto texto-gris" id="input-gasto" placeholder="Gastos Varios">
-                <span class="icono-texto" id="icono-t">🏫</span>
+               <label for="nombre-categoria" class="label-categoria">Nombre de la categoria</label>
+               <input type="text" name="nombre-categoria" class="texto texto-gris" id="input-gasto" placeholder="Gastos Varios">
+               <span class="icono-texto" id="icono-t">🏫</span>
             </div>
-            <label>Seleccione un icono</label>
+            <label class="seleccion-subtitulo">Seleccione un icono</label>
             <div class="iconos">                
                <label class="label-radio" for="educacion">
                 <input type="radio" class="radio-button" name="radios" id="educacion" value="educacion" checked>
@@ -56,14 +56,14 @@
               </label>
             </div>
             <div class="color-categoria">
-                <input type="radio" class="radio-grande radio-color verde" name="radio-color" id="verde" value="verde" checked>
-                <input type="radio" class="radio-grande radio-color rojo" name="radio-color" id="rojo" value="rojo">
-                <input type="radio" class="radio-grande radio-color gris" name="radio-color" id="gris" value="gris">
-                <input type="radio" class="radio-grande radio-color celeste" name="radio-color" id="celeste" value="celeste">
-                <input type="radio" class="radio-grande radio-color azul" name="radio-color" id="azul" value="azul">
-                <input type="radio" class="radio-grande radio-color violeta" name="radio-color" id="violeta" value="violeta">
+                <input type="radio" class="radio-grande radio-color esmeralda" name="radio-color" id="verde" value="verde" checked>
+                <input type="radio" class="radio-grande radio-color naranja" name="radio-color" id="rojo" value="rojo">
+                <input type="radio" class="radio-grande radio-color marron" name="radio-color" id="gris" value="gris">
+                <input type="radio" class="radio-grande radio-color verde-azulado" name="radio-color" id="celeste" value="celeste">
+                <input type="radio" class="radio-grande radio-color naranja-suave" name="radio-color" id="azul" value="azul">
+                <input type="radio" class="radio-grande radio-color azul-grisaceo" name="radio-color" id="violeta" value="violeta">
             </div>
-            <button class="btn btn-m btn-naranja" type="button" onclick="agregarCategoria()">Crear Categoria</button>
+            <button class="btn btn-w400 btn-naranja" type="button" onclick="agregarCategoria()">Crear Categoria</button>
         </form>
        </section>
        <section class="resumen-categorias">
