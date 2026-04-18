@@ -1,14 +1,4 @@
-/***************************************************************************************************
-      Nombre: Categorias.js                                                                      
-                                                                                                
-  VERSION     AUTOR                           COMENTARIOS                                        
-    1.0      ALEJANDRO L. BALDRES         PRIMERA VERSION                                         
-    1.1      ALEJANDRO L. BALDRES         FIX LIMPIEZA DE INPUT AL PRESIONAR EL BOTON DE CREAR C 
-    1.2      ALEJANDRO L. BALDRES         INICIALIZACION DE CATEGORIAS
-    1.3      ALEJANDRO L. BALDRES         MANIPULACION DEL JSON
-    1.4      ALEJANDRO L. BALDRES         AGREGADO DE USO DE LOCALSTORAGE
-/**************************************************************************************************/
-import { cargoJSON, obtenerCategorias, guardarCategoria, eliminarCategoria, actualizarCategoria } from "./funciones.js";
+import { cargoJSON, obtenerCategorias, guardarCategoria, eliminarCategoria, actualizarCategoria, guardarValor, obtenerValor } from "./funciones.js";
 
 
 let categoriasJSON = [];
@@ -18,23 +8,23 @@ let contadorCategorias = 0; // Contador de Categorias Cargadas
 //el enter del input de nueva categoria
 $(document).ready(function() {
     categoriasJSON = obtenerCategorias();
-    if ( categoriasJSON.length === 0 ) {
-       cargoJSON("../data/categorias.json").then(datos => {
-          categoriasJSON = datos;
-          if ( categoriasJSON.length != 0 ) {
+    if ( categoriasJSON.length === 0 && !obtenerValor("inicializado") ) {
+           cargoJSON("../data/categorias.json").then(datos => {
+              categoriasJSON = datos;
+              if ( categoriasJSON.length != 0 ) {
+                categoriasJSON.forEach(categoria => {
+                creoItem(categoria.color, categoria.icono, categoria.nombre, categoria.id);
+                guardarCategoria(categoria);
+               }); 
+             }
+           });
+          guardarValor("inicializado", 1);
+        }
+        else {
             categoriasJSON.forEach(categoria => {
             creoItem(categoria.color, categoria.icono, categoria.nombre, categoria.id);
-            guardarCategoria(categoria);
-           }); 
-         }
-       });
-    }
-    else {
-        categoriasJSON.forEach(categoria => {
-        creoItem(categoria.color, categoria.icono, categoria.nombre, categoria.id);
-        });
-    }
-
+            });
+        }
     $('#formulario-categoria').on('submit', function(e) { // Atrapo la señal del submit y agrego la categoria
             let categoriaGasto = $('#input-gasto');
             e.preventDefault();

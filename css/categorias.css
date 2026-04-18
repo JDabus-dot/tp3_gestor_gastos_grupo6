@@ -74,3 +74,18 @@
 .azul-grisaceo {
     background: var(--color-septario);
 }
+
+/* MEDIA QUERY PARA CELULARES Y TABLETS */
+@media screen and (max-width: 767px) {
+    .main {
+        flex-direction:column;
+    }
+
+    .seccion-crear-categoria {
+        width: 95%;
+    }
+
+    .resumen-categorias {
+        width: 100%;
+    }
+}
