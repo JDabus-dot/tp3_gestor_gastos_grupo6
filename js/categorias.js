@@ -85,7 +85,7 @@ function agregarCategoria(){
                                 <input type="text" class="input-lista" value="${categoriaGasto.val()}">        
                             </div>
                             <div>
-                                <button class="btn-flat">🗑</button>                
+                                <button class="btn-flat btn-fm">❌</button>                
                             </div>
                         </li>`);
         contadorCategorias += 1; // incremento la cantidad de categorias y cambio el label que visualiza la cantidad
