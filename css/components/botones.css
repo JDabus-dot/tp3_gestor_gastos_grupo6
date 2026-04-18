@@ -46,6 +46,11 @@
     color: var(--color-texto);
    }
 
+.btn-celeste{
+    background: var(--color-primario);
+    color: var(--color-texto);
+}
+
 .btn-flat {
     background: none;
     border: none;
