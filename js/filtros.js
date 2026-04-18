@@ -53,7 +53,7 @@ function filtrarGastos(){
     const texto= $("#filtro-texto").val();
     
     return gastos.filter(g=>{
-        const coincideCategoria= !cat||  g.categoria === cat;
+        const coincideCategoria= !cat||  g.categoria.nombre === cat;
         const coincideDesde = !desde || g.fecha >= desde;
         const coincideHasta = !hasta || g.fecha <= hasta;
         const coincideTexto= !texto || g.nombre.toLowerCase().includes(texto.toLowerCase());
