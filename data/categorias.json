@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1776531402021,
+        "nombre": "Alimentación",
+        "icono": "🛒",
+        "color": "naranja"
+    },
+    {
+        "id": 1776531539685,
+        "nombre": "Transporte",
+        "icono": "🚕",
+        "color": "marron"
+    },
+    {
+        "id": 1776531606599,
+        "nombre": "Vivienda",
+        "icono": "🏠",
+        "color": "verde-azulado"
+    },
+    {
+        "id": 1776531718492,
+        "nombre": "Salidas",
+        "icono": "🍺",
+        "color": "naranja-suave"
+    },
+    {
+        "id": 1776531780418,
+        "nombre": "Salud",
+        "icono": "💪",
+        "color": "esmeralda"
+    }
+
+]

@@ -1,3 +1,12 @@
+/***************************************************************************************************
+      Nombre: funciones.js                                                                      
+                                                                                                
+  VERSION     AUTOR                           COMENTARIOS                                        
+
+    1.0      JULIAN RIEDINGER             PRIMERA VERSION                                         
+    1.1      ALEJANDRO L. BALDRES         AGREGADA FUNCION PARA LEVANTAR ARCHIVO LOCAL           
+/**************************************************************************************************/
+
 // Se pasa objeto gasto con los siguientes campos: { nombre, categoria, monto, fecha }
 export function guardarGasto(gasto) {
   const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
@@ -45,4 +54,20 @@ export function eliminarGasto(gasto) {
 // Recibe un array de objetos gasto y devuelve el total de los montos
 export function calcularTotalGastos(gastos) {
   return gastos.reduce((total, gasto) => (total += gasto.monto), 0);
+}
+
+//Cargo un json pasandole la uri puede ser local
+export function cargoJSON(uri) {
+    return $.ajax({
+        url: uri,
+        method: 'GET',
+        datatype: 'json'
+    })
+
+    .done(datos => {
+        return datos;
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+        return {};
+    });
 }

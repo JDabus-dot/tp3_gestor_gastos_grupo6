@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/categorias.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="../js/radio.js" defer></script>
-    <script src="../js/categorias.js" defer></script>
+    <script src="../js/categorias.js" type="module"></script>
 </head>
 <body>
     <main class="main">
@@ -63,7 +63,7 @@
                 <input type="radio" class="radio-grande radio-color naranja-suave" name="radio-color" id="azul" value="azul">
                 <input type="radio" class="radio-grande radio-color azul-grisaceo" name="radio-color" id="violeta" value="violeta">
             </div>
-            <button class="btn btn-w400 btn-naranja" type="button" onclick="agregarCategoria()">Crear Categoria</button>
+            <button class="btn btn-w400 btn-naranja" type="button" id="btn-crear">Crear Categoria</button>
         </form>
        </section>
        <section class="resumen-categorias">
