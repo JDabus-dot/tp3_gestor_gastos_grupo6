@@ -56,7 +56,10 @@
     border-radius: 8px;
     margin-bottom: var(--space-m);
 }
-
+#btn-abrir-filtros {
+  width: fit-content;
+  white-space: nowrap;
+}
 
 /*Responsive*/
 @media (max-width: 900px){
