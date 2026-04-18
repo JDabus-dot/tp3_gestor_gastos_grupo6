@@ -48,11 +48,7 @@ function filtrarGastos(){
     const texto= document.getElementById("filtro-texto").value;
     
     return gastos.filter(g=>{
-        //conviernte string en fecha para comparar
-        const fechaGasto = new Date(g.fecha.split("/").reverse().join("-"));
-        const fechaDesde = desde ? new Date(desde) : null;
-        const fechaHasta = hasta ? new Date(hasta) : null;
-
+       
         const coincideCategoria= !cat||  g.categoria === cat;
         const coincideDesde = !desde || fechaGasto >= fechaDesde;
         const coincideHasta = !hasta || fechaGasto <= fechaHasta;
