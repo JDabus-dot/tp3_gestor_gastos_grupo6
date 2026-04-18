@@ -1,19 +1,19 @@
 .lista-categorias {
     height: 65vh;
     overflow-y: auto;
+    scrollbar-gutter: stable;
 }
 
 .item-lista {
-    border-radius: 4px;
+    border-radius: 8px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
     list-style-type: none;
-    width: 100%;
+    width: 97%;
     background-color: #E2E2E2;
-    box-shadow: 0px 4px 8px 1px black;
 }
 
 .nombre-categoria {
