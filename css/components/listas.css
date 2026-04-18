@@ -1,0 +1,48 @@
+.lista-categorias {
+    height: 65vh;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.item-lista {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    list-style-type: none;
+    width: 97%;
+    background-color: #E2E2E2;
+}
+
+.item-lista:hover{
+    transform: scale(1.05);
+}
+.nombre-categoria {
+    flex: 1;
+    margin: 0 4px;
+}
+
+.input-lista {
+    appearance: none;
+    border:none;
+    background: none;
+    width: 100%;
+    font-weight: bold;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 40px;
+}
+
+.input-lista:focus{
+    outline: none;
+    border-bottom: 1px solid white;
+}
+
+.icono-lista {
+    padding: 4px;
+    font-size: 40px;
+}
+
+
