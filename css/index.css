@@ -1,4 +1,5 @@
 @import url("style.css");
+@import url("./filtros.css");
 @import url("./components/transacciones.css");
 
 * {
@@ -50,6 +51,7 @@
   border-radius: 8px;
   margin-bottom: var(--space-m);
 }
+
 
 /*Responsive*/
 @media (max-width: 900px) {

@@ -1,0 +1,68 @@
+.radio-button {
+   display: none;
+   appearance: none;
+   opacity: 0;
+}
+
+.label-radio {
+    background-color: lightgrey;
+    width: 100px;
+    height: 100px;
+    margin: 4px;
+    font-size: 60px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.label-radio:hover {
+    transform: scale(1.05);
+}
+
+.label-radio:active{
+    transform: scale(0.90);
+}
+
+.label-radio:has(.radio-button:checked) {
+    border: 4px solid grey;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.radio-grande {
+    appearance: none;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;    
+}
+
+.radio-grande:hover {
+    transform: scale(1.20);
+    border-radius: 0;
+    transition: 0.6s;
+}
+
+.radio-grande:active {
+    transform: scale(0.90);
+    border-radius: 30px;
+    transition: 2s;
+}
+
+.radio-color:checked {
+   border: 4px solid black;
+} 
+
+
+@media screen and (max-width: 767px) {
+    .label-radio {
+        width: 67px;
+        height: 67px;
+        font-size: 35px;
+    }
+
+    .radio-grande {
+        width: 40px;
+        height: 40px;
+    }
+}
+
