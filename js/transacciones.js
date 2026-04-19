@@ -1,18 +1,14 @@
-import { obtenerGastos, guardarGasto } from "./funciones.js";
-
-const listaGastos = $("#lista-gastos");
+import { guardarGasto, eliminarGasto } from "./funciones.js";
+import { renderizarGastos } from "./render.js";
 
 $(document).ready(function () {
-  const gastos = obtenerGastos();
-  gastos.forEach((gasto) => {
-    const gastoItem = `
-        <li>
-          <span>${gasto.nombre}</span>
-          <span>${gasto.categoria}</span>
-          <span>$${gasto.monto}</span>
-          <span>${gasto.fecha}</span>
-          <button class="btn">❌</button>
-        </li>`;
-    listaGastos.append(gastoItem);
+  renderizarGastos();
+
+  $("#lista-gastos").on("click", ".btn", function () {
+    if (confirm("¿Estas seguro de eliminar este gasto?")) {
+      const idGasto = $(this).closest("li").attr("id");
+      eliminarGasto(idGasto);
+      renderizarGastos();
+    }
   });
 });
