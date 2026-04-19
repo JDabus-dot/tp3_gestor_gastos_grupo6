@@ -1,76 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestor de Gastos</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel ="stylesheet" href="css/style.css">
-    <link rel="icon" href="assets/favicon/favicon.ico">
-    
-</head>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="style" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <link rel="icon" href="assets/favicon/favicon.ico" />
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <h1>Gestor de Gastos Personales</h1>
+      <h1>Gestor de Gastos Personales</h1>
     </header>
-    
+
     <main class="container">
-        
-        <section class="seccion-formulario">
-            <h2>Nuevo gasto</h2>
-            <form id="formulario-gasto">
-                <div class="formulario">
-                    <label for="nombre">Concepto</label>
-                    <input type="text" id="nombre" name="concepto">
-                </div>
+      <section class="seccion-formulario">
+        <h2>Nuevo gasto</h2>
+        <form id="formulario-gasto">
+          <div class="formulario">
+            <label for="concepto">Concepto</label>
+            <input type="text" id="nombre" name="concepto" />
+          </div>
 
-                <div class="formulario">
-                    <label for="monto">Monto</label>
-                    <input type="number" id="monto" name="monto">
-                </div>
+          <div class="formulario">
+            <label for="monto">Monto</label>
+            <input type="number" id="monto" name="monto" />
+          </div>
 
-                <div class="formulario">
-                    <label for="categoria">Categoría</label>
-                    <select id="categoria" name="categoria">
-                        <option value="">Seleccionar</option>
-                        <option value="comida">Comida</option>
-                        <option value="transporte">Transporte</option>
-                        <option value="servicios">Servicios</option>
-                        <option value="deporte">Deporte</option>
-                        <option value="ocio">Ocio</option>
-                    </select>
-                </div>
+          <div class="formulario">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria">
+              <option value="">Seleccionar</option>
+              <option value="comida">Comida</option>
+              <option value="transporte">Transporte</option>
+              <option value="servicios">Servicios</option>
+              <option value="deporte">Deporte</option>
+              <option value="ocio">Ocio</option>
+            </select>
+          </div>
 
-                <div class="formulario">
-                    <label for="fecha">Fecha</label>
-                    <input type="date" id="fecha" name="fecha">
-                </div>
+          <div class="formulario">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" />
+          </div>
 
-                <button type="submit" class="btn-primary">Agregar</button>
+          <button type="submit" class="btn-primary">Agregar</button>
+        </form>
+      </section>
 
-            </form>
-        </section>
-        
-        <section class="seccion-lista">
-            <h2>Registro de Transacciones</h2>
-            <ul id="lista-gastos">
+      <section class="seccion-lista">
+        <h2>Registro de Transacciones</h2>
+        <div class="titulos-columnas">
+          <span>Nombre</span>
+          <span>Categoria</span>
+          <span>Monto</span>
+          <span>Fecha</span>
+        </div>
+        <ul id="lista-gastos"></ul>
+      </section>
 
-            </ul>
-        </section>
-        
-        <aside class="seccion-resumen">
-            <h2>Balance Total</h2>
-            <div class="resumen-card">
-                <span id="total">$0</span>
-            </div>
-            <div class="resumen-card">
-                <p>Gastos registrados</p>
-                <span id="cantidad">0</span>
-            </div>
-        </aside>
+      <!-- Seccion filtros -->
+      
+      <div id="modal-filtros" class="modal">
+        <div class="modal-contenido">
+          <button id="btn-cerrar-filtros">X</button>
+
+          <section id="filtros">
+          <h2>Filtros</h2>
+          <div>
+            <label for="filtro-categoria">Categoría</label>
+            <select id="filtro-categoria">
+              <option value="">Seleccionar</option>
+              <option value="comida">Comida</option>
+              <option value="transporte">Transporte</option>
+              <option value="servicios">Servicios</option>
+              <option value="deporte">Deporte</option>
+              <option value="ocio">Ocio</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro-desde">Desde:</label>
+            <input type="date" id="filtro-desde"/>
+          </div>
+          <div>
+            <label for="filtro-hasta">Hasta:</label>
+            <input type="date" id="filtro-hasta"/>
+          </div>
+          <div>
+            <label for="filtro-texto">Concepto: </label>
+            <input type="text" id="filtro-texto" placeholder="Ingrese gasto"/>
+          </div>
+          <div class="filtros-botones">
+            <button class="btn-naranja" id="btn-limpiar-filtro">Limpiar</button>
+            <button class="btn-celeste" id="btn-aplicar-filtro">Aplicar filtros</button>
+          </div>
+          </section>
+        </div>
+      </div>
+
+      <aside class="seccion-resumen">
+        <h2>Balance Total</h2>
+        <div class="resumen-card">
+          <span id="total">$0</span>
+        </div>
+        <div class="resumen-card">
+          <p>Gastos registrados</p>
+          <span id="cantidad">0</span>
+        </div>
+      </aside>
     </main>
-    
-    <script src="js/formulario.js"></script>
-</body>
+
+    <script src="js/formulario.js" type="module"></script>
+    <script src="js/funciones.js" type="module"></script>
+    <script src="js/transacciones.js" type="module"></script>
+  </body>
 </html>

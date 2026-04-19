@@ -1,0 +1,33 @@
+#formulario-gasto{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.form-group label{
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input, .form-group select{
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--color-fondo);
+    font-size:0.9rem;
+}
+
+.error{
+    border: 2px solid red;
+    background-color: var(--color-fondo);
+
+}
