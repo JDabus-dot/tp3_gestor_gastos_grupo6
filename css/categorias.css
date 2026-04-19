@@ -4,11 +4,20 @@
 @import "./components/inputs.css";
 @import "./components/listas.css";
 
+.cuerpo {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
 
 .main {
+    flex: 1;
     display: flex;
     flex-direction: row;
+    padding-bottom: var(--space-m);
 }
+
 .seccion-crear-categoria {
     display: flex;
     flex-direction: column;
@@ -43,7 +52,7 @@
 
 .resumen-categorias {
     width: 70%;
-    height: 70vh;
+    height: 70%;
 }
 
 .color-categoria {
