@@ -1,5 +1,5 @@
 .lista-categorias {
-    height: 65vh;
+    height: 50%;
     overflow-y: auto;
     scrollbar-gutter: stable;
 }
@@ -10,18 +10,20 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-s);
     list-style-type: none;
+    margin-left: var(--space-xs);
     width: 97%;
     background-color: #E2E2E2;
 }
 
 .item-lista:hover{
     transform: scale(1.05);
+    transition: 0.7s;
 }
 .nombre-categoria {
     flex: 1;
-    margin: 0 4px;
+    margin: 0 var(--space-xs);
 }
 
 .input-lista {
@@ -41,8 +43,26 @@
 }
 
 .icono-lista {
-    padding: 4px;
+    padding: var(--space-xs);
     font-size: 40px;
 }
 
+@media screen and (max-width: 760px) {
+    .icono-lista {
+        font-size: 20px;
+    }
+
+    .input-lista {
+        font-size: 20px;
+    }
+    
+    .lista-categorias {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-s);
+    }
+}
 

@@ -1,0 +1,35 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-s);
+}
+
+.link-h2 {
+    display: flex;
+    margin: 0;
+}
+
+.link {
+    display: flex;
+    text-decoration: none;
+    padding: 0 var(--space-xs);
+    align-items: center;
+    height: 100%;
+    color: var(--color-texto-suave);
+}
+
+.link:hover{
+    border-bottom: 2px solid var(--color-secundario);
+    background-color: var(--color-cuartenario);
+    color: var(--color-texto);
+    padding: calc(var(--space-xs) - 2px);
+}
+
+@media screen and (max-width: 767px) {
+    .link {
+        font-size: 16px;
+        padding: var(--space-m) var(--space-s);
+        display: block;
+    }
+
+}

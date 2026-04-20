@@ -52,11 +52,19 @@
 
       <section class="seccion-lista">
         <h2>Registro de Transacciones</h2>
+        <div class="titulos-columnas">
+          <span>Nombre</span>
+          <span>Categoria</span>
+          <span>Monto</span>
+          <span>Fecha</span>
+        </div>
         <ul id="lista-gastos"></ul>
       </section>
 
       <!-- Seccion filtros -->
-      
+      <div class="barra-filtros">
+        <button id="btn-abrir-filtros">Filtros</button>
+      </div>
       <div id="modal-filtros" class="modal">
         <div class="modal-contenido">
           <button id="btn-cerrar-filtros">X</button>
@@ -108,5 +116,6 @@
 
     <script src="js/formulario.js" type="module"></script>
     <script src="js/funciones.js" type="module"></script>
+    <script src="js/transacciones.js" type="module"></script>
   </body>
 </html>

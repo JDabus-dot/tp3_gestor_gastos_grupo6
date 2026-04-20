@@ -1,12 +1,3 @@
-/***************************************************************************************************
-      Nombre: funciones.js                                                                      
-                                                                                                
-  VERSION     AUTOR                           COMENTARIOS                                        
-
-    1.0      JULIAN RIEDINGER             PRIMERA VERSION                                         
-    1.1      ALEJANDRO L. BALDRES         AGREGADA FUNCION PARA LEVANTAR ARCHIVO LOCAL           
-/**************************************************************************************************/
-
 // Se pasa objeto gasto con los siguientes campos: { nombre, categoria, monto, fecha }
 export function guardarGasto(gasto) {
   const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
@@ -37,6 +28,26 @@ export function guardarCategoria(categoria) {
 
 export function obtenerCategorias() {
   return JSON.parse(localStorage.getItem("categorias")) || [];
+}
+
+export function obtenerValor(variable) {
+    return localStorage.getItem(variable);
+}
+
+export function guardarValor(variable, contenido) {
+    localStorage.setItem(variable, contenido);
+}
+
+export function eliminarCategoria(id) {
+    const categorias = JSON.parse(localStorage.getItem("categorias")) || [];
+    const categoriasFiltradas = categorias.filter((categoria) => categoria.id != id);
+    localStorage.setItem("categorias", JSON.stringify(categoriasFiltradas));
+}
+
+export function actualizarCategoria(indice, nombreCategoria) {
+    const categorias = JSON.parse(localStorage.getItem("categorias")) || [];
+    categorias[indice].nombre = nombreCategoria;
+    localStorage.setItem("categorias", JSON.stringify(categorias));  
 }
 
 export function eliminarGasto(gasto) {
