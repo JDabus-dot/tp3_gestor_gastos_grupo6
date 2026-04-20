@@ -57,6 +57,7 @@
           <span>Categoria</span>
           <span>Monto</span>
           <span>Fecha</span>
+          <span>Acción</span>
         </div>
         <ul id="lista-gastos"></ul>
       </section>
@@ -70,34 +71,34 @@
           <button id="btn-cerrar-filtros">X</button>
 
           <section id="filtros">
-          <h2>Filtros</h2>
-          <div>
-            <label for="filtro-categoria">Categoría</label>
-            <select id="filtro-categoria">
-              <option value="">Seleccionar</option>
-              <option value="comida">Comida</option>
-              <option value="transporte">Transporte</option>
-              <option value="servicios">Servicios</option>
-              <option value="deporte">Deporte</option>
-              <option value="ocio">Ocio</option>
-            </select>
-          </div>
-          <div>
-            <label for="filtro-desde">Desde:</label>
-            <input type="date" id="filtro-desde"/>
-          </div>
-          <div>
-            <label for="filtro-hasta">Hasta:</label>
-            <input type="date" id="filtro-hasta"/>
-          </div>
-          <div>
-            <label for="filtro-texto">Concepto: </label>
-            <input type="text" id="filtro-texto" placeholder="Ingrese gasto"/>
-          </div>
-          <div class="filtros-botones">
-            <button class="btn-naranja" id="btn-limpiar-filtro">Limpiar</button>
-            <button class="btn-celeste" id="btn-aplicar-filtro">Aplicar filtros</button>
-          </div>
+            <h2>Filtros</h2>
+            <div>
+              <label for="filtro-categoria">Categoría</label>
+              <select id="filtro-categoria">
+                <option value="">Seleccionar</option>
+                <option value="comida">Comida</option>
+                <option value="transporte">Transporte</option>
+                <option value="servicios">Servicios</option>
+                <option value="deporte">Deporte</option>
+                <option value="ocio">Ocio</option>
+              </select>
+            </div>
+            <div>
+              <label for="filtro-desde">Desde:</label>
+              <input type="date" id="filtro-desde" />
+            </div>
+            <div>
+              <label for="filtro-hasta">Hasta:</label>
+              <input type="date" id="filtro-hasta" />
+            </div>
+            <div>
+              <label for="filtro-texto">Concepto: </label>
+              <input type="text" id="filtro-texto" placeholder="Ingrese gasto" />
+            </div>
+            <div class="filtros-botones">
+              <button class="btn-naranja" id="btn-limpiar-filtro">Limpiar</button>
+              <button class="btn-celeste" id="btn-aplicar-filtro">Aplicar filtros</button>
+            </div>
           </section>
         </div>
       </div>

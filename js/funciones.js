@@ -31,34 +31,28 @@ export function obtenerCategorias() {
 }
 
 export function obtenerValor(variable) {
-    return localStorage.getItem(variable);
+  return localStorage.getItem(variable);
 }
 
 export function guardarValor(variable, contenido) {
-    localStorage.setItem(variable, contenido);
+  localStorage.setItem(variable, contenido);
 }
 
 export function eliminarCategoria(id) {
-    const categorias = JSON.parse(localStorage.getItem("categorias")) || [];
-    const categoriasFiltradas = categorias.filter((categoria) => categoria.id != id);
-    localStorage.setItem("categorias", JSON.stringify(categoriasFiltradas));
+  const categorias = JSON.parse(localStorage.getItem("categorias")) || [];
+  const categoriasFiltradas = categorias.filter((categoria) => categoria.id != id);
+  localStorage.setItem("categorias", JSON.stringify(categoriasFiltradas));
 }
 
 export function actualizarCategoria(indice, nombreCategoria) {
-    const categorias = JSON.parse(localStorage.getItem("categorias")) || [];
-    categorias[indice].nombre = nombreCategoria;
-    localStorage.setItem("categorias", JSON.stringify(categorias));  
+  const categorias = JSON.parse(localStorage.getItem("categorias")) || [];
+  categorias[indice].nombre = nombreCategoria;
+  localStorage.setItem("categorias", JSON.stringify(categorias));
 }
 
-export function eliminarGasto(gasto) {
+export function eliminarGasto(id) {
   const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
-  const gastosFiltrados = gastos.filter(
-    (g) =>
-      g.nombre !== gasto.nombre ||
-      g.categoria !== gasto.categoria ||
-      g.monto !== gasto.monto ||
-      g.fecha !== gasto.fecha,
-  );
+  const gastosFiltrados = gastos.filter((gasto) => gasto.id != id);
   localStorage.setItem("gastos", JSON.stringify(gastosFiltrados));
 }
 
@@ -69,16 +63,16 @@ export function calcularTotalGastos(gastos) {
 
 //Cargo un json pasandole la uri puede ser local
 export function cargoJSON(uri) {
-    return $.ajax({
-        url: uri,
-        method: 'GET',
-        datatype: 'json'
-    })
+  return $.ajax({
+    url: uri,
+    method: "GET",
+    datatype: "json",
+  })
 
-    .done(datos => {
-        return datos;
+    .done((datos) => {
+      return datos;
     })
     .fail((jqXHR, textStatus, errorThrown) => {
-        return {};
+      return {};
     });
 }
