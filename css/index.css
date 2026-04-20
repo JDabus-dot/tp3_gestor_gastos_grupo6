@@ -9,9 +9,9 @@
 
 .header {
   padding: var(--space-m);
-  text-align: flex-start;
+  text-align: left;
   background-color: var(--color-superficie);
-  border-bottom: 1px;
+  border-bottom: 1px solid #eee;
 }
 
 .container {
@@ -46,12 +46,21 @@
 }
 
 .resumen-card {
-  background-color: var(--color--cuaternario);
+  background-color: var(--color-cuartenario);
   padding: var(--space-m);
   border-radius: 8px;
   margin-bottom: var(--space-m);
 }
 
+#lista-gastos {
+  list-style: none;
+  margin-top: var(--space-l);
+}
+
+#lista-gastos li {
+  padding: var(--space-s);
+  border-bottom: 1px solid #eee;
+}
 
 /*Responsive*/
 @media (max-width: 900px) {
