@@ -35,6 +35,7 @@
     box-shadow: 0 0 0 2px rgba(26, 122, 110, 0.2);
 }
 
+
 .error{
     border: 2px solid red;
     background-color: var(--color-fondo);
