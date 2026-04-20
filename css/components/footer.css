@@ -1,0 +1,15 @@
+.pie-pagina {
+    width: 100%;
+    padding: var(--space-s) 0;
+    background-color: var(--color-fondo);
+    text-align: center;
+}
+.texto-footer {
+    color: var(--color-texto-suave);
+    font-size: 12px;
+    padding: 0 var(--space-s);
+    border-top: 1px solid var(--color-quinario);
+}
+
+@media screen and (max-width: 767px) {
+}

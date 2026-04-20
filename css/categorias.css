@@ -1,0 +1,100 @@
+@import "./style.css";
+@import "./components/radios.css";
+@import "./components/botones.css";
+@import "./components/inputs.css";
+@import "./components/listas.css";
+
+.cuerpo {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: var(--space-m);
+}
+
+.seccion-crear-categoria {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background-color: var(--color-superficie);
+    margin: var(--space-s);
+    padding: var(--space-s) var(--space-s);
+    border-radius: 16px;
+}
+
+.label-categoria {
+    display: block;
+    align-items: left;
+}
+.seleccion-subtitulo {
+    margin-top: var(--space-xxl);
+    color: var(--color-texto-suave);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--space-s);
+}
+
+.iconos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.resumen-categorias {
+    width: 70%;
+    height: 70%;
+}
+
+.color-categoria {
+    margin-top: var(--space-m);
+    margin-bottom: var(--space-m);
+}
+
+.esmeralda {
+    background: var(--color-primario);
+}
+ 
+.naranja {
+    background: var(--color-secundario);
+}
+
+.marron {
+    background: var(--color-terciario);
+}
+
+.verde-azulado {
+    background: var(--color-quinario);
+}
+
+.naranja-suave {
+    background: var(--color-sextario);
+}
+
+.azul-grisaceo {
+    background: var(--color-septario);
+}
+
+/* MEDIA QUERY PARA CELULARES Y TABLETS */
+@media screen and (max-width: 767px) {
+    .main {
+        flex-direction:column;
+    }
+
+    .seccion-crear-categoria {
+        width: 95%;
+    }
+
+    .resumen-categorias {
+        width: 100%;
+    }
+}

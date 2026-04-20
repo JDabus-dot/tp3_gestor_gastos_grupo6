@@ -1,0 +1,29 @@
+.seccion-lista .titulos-columnas {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+
+  color: var(--color-primario);
+  padding: var(--space-s);
+}
+
+#lista-gastos {
+  list-style: none;
+  margin-top: var(--space-xs);
+}
+
+#lista-gastos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+
+  padding: var(--space-s);
+  border-bottom: 2px solid var(--color-secundario);
+}
+
+.seccion-lista .titulos-columnas span,
+#lista-gastos li span {
+  flex: 1;
+  text-align: left;
+}
