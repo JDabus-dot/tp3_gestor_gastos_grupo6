@@ -1,5 +1,16 @@
 @import url(components/botones.css);
 
+.registro-filtros {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+#btn-abrir-filtros {
+    font-size: 15px;
+    padding: var(--space-s) var(--space-s);
+    border-radius: 10px;
+    font-weight: 600;
+}
 .modal{
     display:none;
     position: fixed;
@@ -15,6 +26,8 @@
     display:flex;
 }
 .modal-contenido{
+    display:flex;
+    flex-direction: column;
     background-color: var(--color-superficie);
     border-radius: 10px;
     padding: var(--space-l);
