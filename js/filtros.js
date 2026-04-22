@@ -1,5 +1,5 @@
 import { obtenerGastos } from "./funciones.js";
-//import renderde transacciones cuando este
+import { renderizarGastos } from "./render.js";
 
 // abrir y cerrar modal
 const btnAbrir = $("#btn-abrir-filtros");
@@ -30,7 +30,7 @@ btnLimpiar.click(() => {
     $("#filtro-texto").val("");
 
     const todos= obtenerGastos();
-    renderTransacciones(todos);
+    renderizarGastos(todos);
     
 
 });
@@ -39,7 +39,7 @@ btnLimpiar.click(() => {
 const btnAplicar= $("#btn-aplicar-filtro");
 btnAplicar.click(() =>{
     const gastosFiltrados=filtrarGastos();
-    renderTransacciones(gastosFiltrados);
+    renderizarGastos(gastosFiltrados);
     modal.css("display","none");
 })
 
