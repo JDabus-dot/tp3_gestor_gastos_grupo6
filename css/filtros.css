@@ -1,6 +1,10 @@
 @import url(components/botones.css);
 
-
+.registro-filtros {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
 #btn-abrir-filtros {
     font-size: 15px;
     padding: var(--space-s) var(--space-s);
