@@ -1,0 +1,17 @@
+.menu {
+    display: flex;
+    height: 80px
+    align-items: stretch;
+    justify-content: space-between;
+    padding-left: var(--space-m);
+    padding-right: var(--space-m);
+    background-color: var(--color-superficie);
+    box-shadow: 0 0 8px 1px var(--color-primario);
+}
+
+@media screen and (max-width: 767px) {
+    .menu {
+        flex-direction: column;
+        font-size: 14px;
+    }
+}

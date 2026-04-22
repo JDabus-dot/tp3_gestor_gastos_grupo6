@@ -1,0 +1,52 @@
+.seccion-lista .titulos-columnas {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+
+  color: var(--color-primario);
+  padding: var(--space-s);
+}
+
+#lista-gastos {
+  list-style: none;
+  margin-top: var(--space-xs);
+}
+
+#lista-gastos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+
+  padding: var(--space-s);
+  border-bottom: 2px solid var(--color-secundario);
+}
+
+.seccion-lista .titulos-columnas span,
+#lista-gastos li span {
+  flex: 1;
+  max-width: 100px;
+}
+
+.titulos-columnas span {
+  text-align: right;
+}
+
+#lista-gastos li span {
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .seccion-lista .titulos-columnas {
+    display: none;
+  }
+
+  #lista-gastos li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #lista-gastos li button {
+    align-self: flex-end;
+  }
+}

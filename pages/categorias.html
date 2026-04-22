@@ -9,7 +9,14 @@
     <script src="../js/radio.js" defer></script>
     <script src="../js/categorias.js" type="module"></script>
 </head>
-<body>
+<body class="cuerpo">
+    <header class="menu">
+        <h1>Gestor de Gastos</h1>
+        <nav class="nav">
+            <h2 class="link-h2"><a class="link" href="../index.html">Dashboard</a></h2>
+            <h2 class="link-h2"><a class="link" href="./categorias.html">Categorias</a></h2>
+        </nav>
+    </header>
     <main class="main">
        <section class="seccion-crear-categoria">
         <h3 class="titulo-chico">Configuración</h3>
@@ -17,8 +24,10 @@
         <form class="formulario" id="formulario-categoria">
             <div class="nombre-categoria-texto">
                <label for="nombre-categoria" class="label-categoria">Nombre de la categoria</label>
-               <input type="text" name="nombre-categoria" class="texto texto-gris" id="input-gasto" placeholder="Gastos Varios">
-               <span class="icono-texto" id="icono-t">🏫</span>
+               <div class="icono-input">
+                  <input type="text" name="nombre-categoria" class="texto texto-gris" id="input-gasto" placeholder="Gastos Varios">
+                  <span class="icono-texto" id="icono-t">🏫</span>
+               </div>
             </div>
             <label class="seleccion-subtitulo">Seleccione un icono</label>
             <div class="iconos">                
@@ -75,10 +84,10 @@
             
            </ul>
         </div>
-
        </section>
-
-
     </main>
+    <footer class="pie-pagina">
+        <h3 class="texto-footer">(C) 2026 - Gestor de Gastos - Baldres A. - Belardinelli M. - Dabús J. - Ledesma Gonzalez M. - Riedinger J. - Zivano C.</h3>
+    </footer>
 </body>
 </html>
