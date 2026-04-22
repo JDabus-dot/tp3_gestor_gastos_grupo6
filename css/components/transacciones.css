@@ -1,8 +1,8 @@
 .seccion-lista .titulos-columnas {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 
+  font-weight: bold;
   color: var(--color-primario);
   padding: var(--space-s);
 }
@@ -13,35 +13,25 @@
 }
 
 #lista-gastos li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 
+  font-weight: bold;
   padding: var(--space-s);
   border-bottom: 2px solid var(--color-secundario);
 }
 
-.seccion-lista .titulos-columnas span,
-#lista-gastos li span {
-  flex: 1;
-  max-width: 100px;
+#lista-gastos li button {
+  margin: 0;
 }
 
-.titulos-columnas span {
-  text-align: right;
-}
-
-#lista-gastos li span {
-  text-align: center;
-}
-
-@media (max-width: 760px) {
+@media (max-width: 1200px) {
   .seccion-lista .titulos-columnas {
     display: none;
   }
 
   #lista-gastos li {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
