@@ -1,6 +1,7 @@
 @import url("style.css");
 @import url("./filtros.css");
 @import url("./components/transacciones.css");
+@import url("./components/edicion.css");
 
 * {
   margin: 0;

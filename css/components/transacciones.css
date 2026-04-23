@@ -25,6 +25,11 @@
   margin: 0;
 }
 
+.acciones {
+  display: flex;
+  gap: var(--space-m);
+}
+
 @media (max-width: 1200px) {
   .seccion-lista .titulos-columnas {
     display: none;

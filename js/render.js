@@ -18,7 +18,10 @@ export function renderizarGastos() {
           <span>${gasto.categoria}</span>
           <span>$${gasto.monto}</span>
           <span>${gasto.fecha}</span>
-          <button class="btn">❌</button>
+          <div class="acciones">
+            <button class="btn btn-editar">✏️</button>
+            <button class="btn btn-eliminar">❌</button>
+          </div>
         </li>`;
     listaGastos.append(gastoItem);
   });
