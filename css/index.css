@@ -1,9 +1,12 @@
 @import url("style.css");
+@import url("./components/botones.css");
 @import url("./filtros.css");
 @import url("./categorias.css");
 @import url("./components/transacciones.css");
 @import url("./components/edicion.css");
 @import url("./components/formulario.css");
+@import url("./components/estadisticas.css");
+
 
 * {
   margin: 0;

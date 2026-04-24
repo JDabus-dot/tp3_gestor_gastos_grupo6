@@ -26,3 +26,27 @@ export function renderizarGastos() {
     listaGastos.append(gastoItem);
   });
 }
+
+export function renderizarGastosFiltrados(gastosFiltrados) {
+  const listaGastos = $("#lista-gastos");
+  listaGastos.empty();
+
+  const gastos = gastosFiltrados;
+
+  if (gastos.length === 0) {
+    listaGastos.append("<li>No hay gastos registrados</li>");
+    return;
+  }
+
+  gastos.forEach((gasto) => {
+    const gastoItem = `
+        <li id="${gasto.id}">
+          <span>${gasto.nombre}</span>
+          <span>${gasto.categoria}</span>
+          <span>$${gasto.monto}</span>
+          <span>${gasto.fecha}</span>
+          <button class="btn">❌</button>
+        </li>`;
+    listaGastos.append(gastoItem);
+  });
+}

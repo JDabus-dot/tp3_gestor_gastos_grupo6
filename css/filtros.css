@@ -1,5 +1,3 @@
-@import url(components/botones.css);
-
 .registro-filtros {
     display: flex;
     justify-content: space-between; 
@@ -22,9 +20,7 @@
     align-items: center;
 
 }
-.modal.show{
-    display:flex;
-}
+
 .modal-contenido{
     display:flex;
     flex-direction: column;

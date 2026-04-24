@@ -91,3 +91,13 @@ export function editarGasto(gasto) {
   }
 
 }
+//Muestra las categorias en un select la hizo juli
+export function cargarCategoriasEnSelect() {
+    const select = $(".opciones-categorias");
+    const categorias = obtenerCategorias();
+    categorias.forEach(cat => {
+        select.append(
+            '<option value="' + cat.nombre + '">' + cat.nombre + '</option>'
+        );
+    });
+}
