@@ -25,6 +25,17 @@
   margin: 0;
 }
 
+.acciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+#lista-gastos .no-gastos {
+  display: block;
+}
+
 @media (max-width: 1200px) {
   .seccion-lista .titulos-columnas {
     display: none;
@@ -38,5 +49,10 @@
 
   #lista-gastos li button {
     align-self: flex-end;
+  }
+
+  .acciones {
+    align-self: flex-end;
+    gap: var(--space-s);
   }
 }
