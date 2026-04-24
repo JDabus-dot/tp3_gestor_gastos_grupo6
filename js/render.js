@@ -1,49 +1,38 @@
-import { obtenerGastos } from "./funciones.js";
+import { obtenerCategorias, obtenerGastos } from "./funciones.js";
 
-export function renderizarGastos() {
+function htmlGastos(gastos) {
   const listaGastos = $("#lista-gastos");
   listaGastos.empty();
 
-  const gastos = obtenerGastos();
+  const categorias = obtenerCategorias();
 
   if (gastos.length === 0) {
-    listaGastos.append("<li>No hay gastos registrados</li>");
+    listaGastos.append("<li class='no-gastos'>No hay gastos registrados</li>");
     return;
   }
 
   gastos.forEach((gasto) => {
+    const categoria = categorias.find((c) => c.id === gasto.categoria);
     const gastoItem = `
         <li id="${gasto.id}">
           <span>${gasto.nombre}</span>
           <span>${gasto.categoria}</span>
           <span>$${gasto.monto}</span>
           <span>${gasto.fecha}</span>
-          <button class="btn">❌</button>
+          <div class="acciones">
+            <button class="btn btn-editar">✏️</button>
+            <button class="btn btn-eliminar">❌</button>
+          </div>
         </li>`;
     listaGastos.append(gastoItem);
   });
 }
 
+export function renderizarGastos() {
+  const gastos = obtenerGastos();
+  htmlGastos(gastos);
+}
+
 export function renderizarGastosFiltrados(gastosFiltrados) {
-  const listaGastos = $("#lista-gastos");
-  listaGastos.empty();
-
-  const gastos = gastosFiltrados;
-
-  if (gastos.length === 0) {
-    listaGastos.append("<li>No hay gastos registrados</li>");
-    return;
-  }
-
-  gastos.forEach((gasto) => {
-    const gastoItem = `
-        <li id="${gasto.id}">
-          <span>${gasto.nombre}</span>
-          <span>${gasto.categoria}</span>
-          <span>$${gasto.monto}</span>
-          <span>${gasto.fecha}</span>
-          <button class="btn">❌</button>
-        </li>`;
-    listaGastos.append(gastoItem);
-  });
+  htmlGastos(gastosFiltrados);
 }
