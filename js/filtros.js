@@ -1,5 +1,5 @@
 import { obtenerGastos } from "./funciones.js";
-import { renderizarGastos } from "./render.js";
+import { renderizarGastos, renderizarGastosFiltrados } from "./render.js";
 
 // abrir y cerrar modal
 const btnAbrir = $("#btn-abrir-filtros");
@@ -39,7 +39,7 @@ btnLimpiar.click(() => {
 const btnAplicar= $("#btn-aplicar-filtro");
 btnAplicar.click(() =>{
     const gastosFiltrados=filtrarGastos();
-    renderizarGastos(gastosFiltrados);
+    renderizarGastosFiltrados(gastosFiltrados);
     modal.css("display","none");
 })
 
@@ -53,10 +53,11 @@ function filtrarGastos(){
     const texto= $("#filtro-texto").val();
     
     return gastos.filter(g=>{
-        const coincideCategoria= !cat||  g.categoria.nombre === cat;
+        const coincideCategoria= !cat||  g.categoria === cat;
         const coincideDesde = !desde || g.fecha >= desde;
         const coincideHasta = !hasta || g.fecha <= hasta;
         const coincideTexto= !texto || g.nombre.toLowerCase().includes(texto.toLowerCase());
+        
         return(
             coincideCategoria && coincideDesde && coincideHasta && coincideTexto
         )
