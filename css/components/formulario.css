@@ -36,7 +36,8 @@
 }
 
 
-.error{
+.formulario input.error,
+.formulario select.error {
     border: 2px solid red;
     background-color: var(--color-fondo);
 

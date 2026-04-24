@@ -35,9 +35,9 @@ export function inicializarCategorias() {
    const categoriasJSON = obtenerCategorias();
    if ( categoriasJSON.length === 0 && !obtenerValor("inicializado") ) {
            cargoJSON("../data/categorias.json").then(datos => {
-              localStorage.setItem(datos);             
-           });
-          guardarValor("inicializado", 1);
+              localStorage.setItem("categorias", JSON.stringify(datos));             
+              guardarValor("inicializado", 1);
+           });         
         }
 }
 

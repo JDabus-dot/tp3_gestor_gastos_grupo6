@@ -20,7 +20,8 @@
 .container {
   flex: 1;
   display: flex;
-  gap: var(--space-l);
+  gap: 20px;
+  flex-wrap: wrap;
   padding: var(--space-l);
 }
 
@@ -40,19 +41,10 @@
   border-radius: 10px;
 }
 
-/*Sección resumen*/
-.seccion-resumen {
+/*Sección estadísticas*/
+.seccion-estadisticas {
   flex: 1;
-  background-color: var(--color-superficie);
-  padding: var(--space-l);
-  border-radius: 10px;
-}
-
-.resumen-card {
-  background-color: var(--color-cuartenario);
-  padding: var(--space-m);
-  border-radius: 8px;
-  margin-bottom: var(--space-m);
+  min-width: 220px;
 }
 
 #btn-abrir-filtros {
@@ -62,7 +54,22 @@
 
 /*Responsive*/
 @media (max-width: 900px) {
-  .container {
-    flex-direction: column;
+  .seccion-formulario {
+    flex: 1 1 48%;
+  }
+
+  .seccion-lista {
+    flex: 1 1 48%;
+  }
+
+  .seccion-resumen {
+    flex: 1 1 100%;
+  }
+}
+@media (max-width: 600px) {
+  .seccion-formulario,
+  .seccion-lista,
+  .seccion-resumen {
+    flex: 1 1 100%;
   }
 }
