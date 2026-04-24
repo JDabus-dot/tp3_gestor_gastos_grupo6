@@ -12,11 +12,11 @@ function htmlGastos(gastos) {
   }
 
   gastos.forEach((gasto) => {
-    const categoria = categorias.find((c) => c.id === gasto.categoria);
+    const categoria = categorias.find((c) => c.id === Number(gasto.categoria));
     const gastoItem = `
         <li id="${gasto.id}">
           <span>${gasto.nombre}</span>
-          <span>${gasto.categoria}</span>
+          <span>${categoria.nombre}</span>
           <span>$${gasto.monto}</span>
           <span>${gasto.fecha}</span>
           <div class="acciones">
