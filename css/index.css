@@ -56,7 +56,6 @@
   border-radius: 8px;
   margin-bottom: var(--space-m);
 }
-<<<<<<< HEAD
 
 #lista-gastos {
   list-style: none;
@@ -66,11 +65,12 @@
 #lista-gastos li {
   padding: var(--space-s);
   border-bottom: 1px solid #eee;
-=======
+}
+
 #btn-abrir-filtros {
   width: fit-content;
   white-space: nowrap;
->>>>>>> 9f23ecec2dd64187e0f0b1a81a4fffaa61f63df2
+
 }
 
 /*Responsive*/
