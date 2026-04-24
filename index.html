@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestor de Gastos</title>
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="style" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="js/filtros.js" type="module"></script>
     <link rel="icon" href="assets/favicon/favicon.ico" />
@@ -72,16 +71,16 @@
 
       <!--Sección Edición de gastos-->      <!-- Agregó Mati -->
 
-      <div class="popup-editar">
-        <form id="formulario-gasto">
-          <div class="formulario">
-            <label for="concepto">Concepto</label>
-            <input type="text" id="nombre" name="concepto" />
+      <div id="popup-de-edicion" class="popup-editar">
+        <form id="formulario-edicion" >
+          <div>
+            <label for="concepto-edicion">Concepto</label>
+            <input type="text" id="concepto-edicion" name="concepto" />
           </div>
 
-          <div class="formulario">
-            <label for="monto">Monto</label>
-            <input type="number" id="monto" name="monto" />
+          <div >
+            <label for="monto-edicion">Monto</label>
+            <input type="number" id="monto-edicion" name="monto" />
           </div>
 
           <div>
@@ -96,13 +95,13 @@
               </select>
           </div>
 
-          <div class="formulario">
-            <label for="fecha">Fecha</label>
-            <input type="date" id="fecha" name="fecha" />
+          <div >
+            <label for="fecha-edicion">Fecha</label>
+            <input type="date" id="fecha-edicion" name="fecha" />
           </div>
 
-          <button type="submit" class="btn-primary">Guardar cambios</button>
-          <button id="btn-cerrar-edicion"> Salir </button>
+          <button type="submit" >Guardar cambios</button>
+          <button type="button" id="btn-cerrar-edicion"> Salir </button>
         </form>
       </div>
       

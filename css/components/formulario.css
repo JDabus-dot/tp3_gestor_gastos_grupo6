@@ -1,0 +1,42 @@
+#formulario-gasto{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.formulario label{
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.formulario input,
+.formulario select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: var(--color-superficie);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    border: 1px solid var(--color-primario);
+    box-shadow: 0 0 0 2px rgba(26, 122, 110, 0.2);
+}
+
+
+.error{
+    border: 2px solid red;
+    background-color: var(--color-fondo);
+
+}

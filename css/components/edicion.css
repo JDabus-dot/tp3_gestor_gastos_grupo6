@@ -12,10 +12,15 @@
   z-index: 1000;
 }
 
-.btn-primary { align-self: flex-end;
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;}
+.popup-activo{
+  display: flex; /* solo lo muestra una vez q se toca el boton de editar */
+}
 
-    
+#formulario-edicion { /* caracteristicas de estilo del formulario */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+

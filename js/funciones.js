@@ -79,9 +79,10 @@ export function cargoJSON(uri) {
 
 export function editarGasto(gasto) {
   const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
+  console.log(gasto);
   const indice_id = gastos.findIndex( // indice_id tomará el valor del indice en el cual g = gasto.id
     (g) => // g es una variable que recorre cada elemnto del array []
-    g.id === gasto.id); 
+    g.id == gasto.id); 
     console.log(indice_id);
   if (indice_id !== -1) {  // si el indice es distinto a -1, es xq lo encontró
     console.log(indice_id);
