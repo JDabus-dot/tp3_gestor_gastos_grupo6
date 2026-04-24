@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestor de Gastos</title>
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/components/boton.css">
-    <link rel="stylesheet" href="css/components/formulario.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    <script src="js/filtros.js" type="module"></script>
     <link rel="icon" href="assets/favicon/favicon.ico" />
   </head>
 
@@ -121,6 +117,46 @@
           <span id="cantidad">0</span>
         </div>
       </aside>
+<section class="seccion-estadisticas">
+  <h3>Estadísticas</h3>
+
+  <div class="stats-grid">
+    <div class="stat-card destacado">
+      <p class="stat-label">Total acumulado</p>
+      <span class="stat-valor" id="est-total">$0</span>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Cantidad de gastos</p>
+      <span class="stat-valor" id="est-cantidad">0</span>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Promedio por gasto</p>
+      <span class="stat-valor" id="est-promedio">$0</span>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Categorías activas</p>
+      <span class="stat-valor" id="est-categorias">0</span>
+    </div>
+  </div>
+
+  <p class="categorias-titulo">Desglose por categoría</p>
+  <div id="est-desglose">
+
+  </div>
+
+  <div class="maximos">
+    <div class="maximo-item">
+      <span class="maximo-label">Gasto más alto</span>
+      <span class="maximo-valor" id="est-max-nombre">—</span>
+    </div>
+    <div class="maximo-item">
+      <span class="maximo-label">Gasto más reciente</span>
+      <span class="maximo-valor" id="est-reciente">—</span>
+    </div>
+  </div>
+
+</section>
+      
     </main>
 
     <footer class="pie-pagina">
@@ -132,6 +168,9 @@
 
     <script src="js/formulario.js" type="module"></script>
     <script src="js/funciones.js" type="module"></script>
+    <script src="js/estadisticas.js" type="module"></script>
+    <script src="js/filtros.js" type="module"></script>
+
     <script src="js/transacciones.js" type="module"></script>
   </body>
 </html>
