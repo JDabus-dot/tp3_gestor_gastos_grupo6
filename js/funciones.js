@@ -76,3 +76,16 @@ export function cargoJSON(uri) {
       return {};
     });
 }
+
+//Muestra las categorias en un select
+export function cargarCategoriasEnSelect() {
+    const select = $(".opciones-categorias");
+    const categorias = obtenerCategorias();
+
+
+    categorias.forEach(cat => {
+        select.append(
+            '<option value="' + cat.nombre + '">' + cat.nombre + '</option>'
+        );
+    });
+}
