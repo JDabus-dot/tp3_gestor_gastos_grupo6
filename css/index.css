@@ -22,7 +22,8 @@
 .container {
   flex: 1;
   display: flex;
-  gap: var(--space-l);
+  gap: 20px;
+  flex-wrap: wrap;
   padding: var(--space-l);
 }
 
@@ -42,40 +43,36 @@
   border-radius: 10px;
 }
 
-/*Sección resumen*/
-.seccion-resumen {
+/*Sección estadísticas*/
+.seccion-estadisticas {
   flex: 1;
-  background-color: var(--color-superficie);
-  padding: var(--space-l);
-  border-radius: 10px;
+  min-width: 220px;
 }
 
-.resumen-card {
-  background-color: var(--color-cuartenario);
-  padding: var(--space-m);
-  border-radius: 8px;
-  margin-bottom: var(--space-m);
-}
-<<<<<<< HEAD
 
-#lista-gastos {
-  list-style: none;
-  margin-top: var(--space-l);
-}
-
-#lista-gastos li {
-  padding: var(--space-s);
-  border-bottom: 1px solid #eee;
-=======
 #btn-abrir-filtros {
   width: fit-content;
   white-space: nowrap;
->>>>>>> 9f23ecec2dd64187e0f0b1a81a4fffaa61f63df2
 }
 
 /*Responsive*/
 @media (max-width: 900px) {
-  .container {
-    flex-direction: column;
+  .seccion-formulario {
+    flex: 1 1 48%;
+  }
+
+  .seccion-lista {
+    flex: 1 1 48%;
+  }
+
+  .seccion-resumen {
+    flex: 1 1 100%;
+  }
+}
+@media (max-width: 600px) {
+  .seccion-formulario,
+  .seccion-lista,
+  .seccion-resumen {
+    flex: 1 1 100%;
   }
 }
