@@ -1,4 +1,4 @@
-import { obtenerGastos } from "./funciones.js";
+import { obtenerGastos,obtenerCategorias, cargarCategoriasEnSelect } from "./funciones.js";
 import { renderizarGastos, renderizarGastosFiltrados } from "./render.js";
 
 // abrir y cerrar modal
@@ -33,6 +33,11 @@ btnLimpiar.click(() => {
     renderizarGastos(todos);
     
 
+});
+
+//cargar categorias en select
+$(document).ready(function () {
+    cargarCategoriasEnSelect();
 });
 
 //conectar logica con boton aplicar fltro
