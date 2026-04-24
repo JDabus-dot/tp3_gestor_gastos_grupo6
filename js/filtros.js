@@ -35,10 +35,6 @@ btnLimpiar.click(() => {
 
 });
 
-//cargar categorias en select
-$(document).ready(function () {
-    cargarCategoriasEnSelect();
-});
 
 //conectar logica con boton aplicar fltro
 const btnAplicar= $("#btn-aplicar-filtro");
