@@ -70,14 +70,14 @@ function render() { //se borra lo anterior y se inicializa el total
 
     gastos.forEach(gasto => { //se recorre cada gasto y suma el monto
         total +=gasto.monto;
-        //crea una lista
+        //crea una lista e inserta el contenido del gasto
         const li = document.createElement("li");
         li.innerHTML=`
             <strong>${gasto.nombre}</strong> - $${gasto.monto}
          <small>${gasto.categoria} | ${gasto.fecha}</small>
         `;
 
-        lista.append(li); //se muestran los elementos y se agregan a la lista
+        lista.append(li); // se agrega a la lista
         
     })
     //en el resumen se muestra el total y la cant de gastos
