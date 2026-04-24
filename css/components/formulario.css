@@ -42,7 +42,15 @@
 
 }
 
+#btn-agregar-gasto {
+    font-size: 15px;
+    padding: var(--space-s) var(--space-s);
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
 
+}
 
 
 

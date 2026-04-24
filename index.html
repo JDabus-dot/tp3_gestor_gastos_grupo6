@@ -34,13 +34,8 @@
 
           <div class="formulario">
             <label for="categoria">Categoría</label>
-            <select id="categoria" name="categoria">
+            <select id="categoria" name="categoria" class="opciones-categorias">
               <option value="">Seleccionar</option>
-              <option value="comida">Comida</option>
-              <option value="transporte">Transporte</option>
-              <option value="servicios">Servicios</option>
-              <option value="deporte">Deporte</option>
-              <option value="ocio">Ocio</option>
             </select>
           </div>
 
@@ -49,7 +44,7 @@
             <input type="date" id="fecha" name="fecha" />
           </div>
 
-          <button type="submit" class="btn-primary">Agregar</button>
+          <button type="submit" class=" btn btn-celeste" id="btn-agregar-gasto">Agregar</button>
         </form>
       </section>
 
@@ -69,7 +64,6 @@
       </section>
 
       <!-- Seccion filtros -->
-
       <div id="modal-filtros" class="modal">
         <div class="modal-contenido">
           <button id="btn-cerrar-filtros">X</button>

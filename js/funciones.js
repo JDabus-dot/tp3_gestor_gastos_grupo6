@@ -96,7 +96,7 @@ export function cargarCategoriasEnSelect() {
 
     categorias.forEach(cat => {
         select.append(
-            '<option value="' + cat.nombre + '">' + cat.nombre + '</option>'
+            '<option value="' + cat.id + '">' + cat.nombre + '</option>'
         );
     });
 }
