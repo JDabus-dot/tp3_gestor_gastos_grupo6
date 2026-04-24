@@ -4,6 +4,10 @@
     width: 80%;
     }
 
+.icono-input {
+    position: relative;
+    width: 100%;
+}
 .texto {
     width: 100%;
     padding-left: 40px;
@@ -19,6 +23,5 @@
 .icono-texto {
     position: absolute;
     left: 4px;
-    top: 21px;
     font-size: 24px;
 }

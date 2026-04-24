@@ -1,0 +1,42 @@
+.seccion-lista .titulos-columnas {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  font-weight: bold;
+  color: var(--color-primario);
+  padding: var(--space-s);
+}
+
+#lista-gastos {
+  list-style: none;
+  margin-top: var(--space-xs);
+}
+
+#lista-gastos li {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  font-weight: bold;
+  padding: var(--space-s);
+  border-bottom: 2px solid var(--color-secundario);
+}
+
+#lista-gastos li button {
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .seccion-lista .titulos-columnas {
+    display: none;
+  }
+
+  #lista-gastos li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #lista-gastos li button {
+    align-self: flex-end;
+  }
+}
