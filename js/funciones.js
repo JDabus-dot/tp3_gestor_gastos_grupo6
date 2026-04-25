@@ -30,6 +30,17 @@ export function obtenerCategorias() {
   return JSON.parse(localStorage.getItem("categorias")) || [];
 }
 
+//Inicializar el JSON de Categorias 
+export function inicializarCategorias() {
+   const categoriasJSON = obtenerCategorias();
+   if ( categoriasJSON.length === 0 && !obtenerValor("inicializado") ) {
+           cargoJSON("../data/categorias.json").then(datos => {
+              localStorage.setItem("categorias", JSON.stringify(datos));             
+              guardarValor("inicializado", 1);
+           });         
+        }
+}
+
 export function obtenerValor(variable) {
   return localStorage.getItem(variable);
 }
@@ -94,7 +105,7 @@ export function cargarCategoriasEnSelect() {
     const categorias = obtenerCategorias();
     categorias.forEach(cat => {
         select.append(
-            '<option value="' + cat.nombre + '">' + cat.nombre + '</option>'
+            '<option value="' + cat.id + '">' + cat.nombre + '</option>'
         );
     });
 }

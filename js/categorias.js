@@ -60,7 +60,7 @@ $(document).ready(function() {
     
     // actualizo el nombre de la categoria cuando pierdo el foco para evitar bug ;-)
     $(document).on('blur', '.input-lista', function() {
-        actualizarElemento($(this), categoriasJSON);
+        actualizarElemento($(this));
     })
 
     //Elimino de la categoria de la lista y el json
@@ -76,7 +76,7 @@ $(document).ready(function() {
     });
 });
 
-function actualizarElemento(elemento, json) {
+function actualizarElemento(elemento) {
     let idJson = elemento.closest('.item-lista').find('.btn-flat').attr('identificador');
     let indice = categoriasJSON.findIndex(categoria => categoria.id == idJson);
     if ( indice !== -1 ) {

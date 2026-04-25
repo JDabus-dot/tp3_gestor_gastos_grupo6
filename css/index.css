@@ -5,8 +5,6 @@
 @import url("./components/transacciones.css");
 @import url("./components/edicion.css");
 @import url("./components/formulario.css");
-@import url("./components/estadisticas.css");
-
 
 * {
   margin: 0;
@@ -15,15 +13,16 @@
 
 .header {
   padding: var(--space-m);
-  text-align: flex-start;
+  text-align: left;
   background-color: var(--color-superficie);
-  border-bottom: 1px;
+  border-bottom: 1px solid #eee;
 }
 
 .container {
   flex: 1;
   display: flex;
-  gap: var(--space-l);
+  gap: 20px;
+  flex-wrap: wrap;
   padding: var(--space-l);
 }
 
@@ -43,20 +42,12 @@
   border-radius: 10px;
 }
 
-/*Sección resumen*/
-.seccion-resumen {
+/*Sección estadísticas*/
+.seccion-estadisticas {
   flex: 1;
-  background-color: var(--color-superficie);
-  padding: var(--space-l);
-  border-radius: 10px;
+  min-width: 220px;
 }
 
-.resumen-card {
-  background-color: var(--color--cuaternario);
-  padding: var(--space-m);
-  border-radius: 8px;
-  margin-bottom: var(--space-m);
-}
 #btn-abrir-filtros {
   width: fit-content;
   white-space: nowrap;
@@ -64,7 +55,22 @@
 
 /*Responsive*/
 @media (max-width: 900px) {
-  .container {
-    flex-direction: column;
+  .seccion-formulario {
+    flex: 1 1 48%;
+  }
+
+  .seccion-lista {
+    flex: 1 1 48%;
+  }
+
+  .seccion-resumen {
+    flex: 1 1 100%;
+  }
+}
+@media (max-width: 600px) {
+  .seccion-formulario,
+  .seccion-lista,
+  .seccion-resumen {
+    flex: 1 1 100%;
   }
 }

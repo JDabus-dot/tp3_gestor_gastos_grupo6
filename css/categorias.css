@@ -1,8 +1,8 @@
-@import "./style.css";
-@import "./components/radios.css";
-@import "./components/botones.css";
-@import "./components/inputs.css";
-@import "./components/listas.css";
+@import url("./style.css");
+@import url("./components/radios.css");
+@import url("./components/botones.css");
+@import url("./components/inputs.css");
+@import url("./components/listas.css");
 
 .cuerpo {
     display: flex;

@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/favicon/favicon.ico" />
   </head>
 
-  <body>
+  <body class="cuerpo">
     <header class="menu">
       <h1>Gestor de Gastos</h1>
       <nav class="nav">
@@ -34,13 +34,8 @@
 
           <div class="formulario">
             <label for="categoria">Categoría</label>
-            <select id="categoria" name="categoria">
+            <select id="categoria" name="categoria" class="opciones-categorias">
               <option value="">Seleccionar</option>
-              <option value="comida">Comida</option>
-              <option value="transporte">Transporte</option>
-              <option value="servicios">Servicios</option>
-              <option value="deporte">Deporte</option>
-              <option value="ocio">Ocio</option>
             </select>
           </div>
 
@@ -49,7 +44,7 @@
             <input type="date" id="fecha" name="fecha" />
           </div>
 
-          <button type="submit" class="btn-primary">Agregar</button>
+          <button type="submit" class=" btn btn-celeste" id="btn-agregar-gasto">Agregar</button>
         </form>
       </section>
 
@@ -110,49 +105,43 @@
       
 
       <!-- Seccion filtros -->
-
       <div id="modal-filtros" class="modal">
         <div class="modal-contenido">
           <button id="btn-cerrar-filtros">X</button>
 
           <section id="filtros">
-            <h2>Filtros</h2>
-            <div>
-              <label for="opciones-categorias">Categoría</label>
-                <select class="opciones-categorias" id="filtro-categoria"> 
-                  <option value="">Todas</option>
-                </select>
-            </div>
-            <div>
-              <label for="filtro-desde">Desde:</label>
-              <input type="date" id="filtro-desde" />
-            </div>
-            <div>
-              <label for="filtro-hasta">Hasta:</label>
-              <input type="date" id="filtro-hasta" />
-            </div>
-            <div>
-              <label for="filtro-texto">Concepto: </label>
-              <input type="text" id="filtro-texto" placeholder="Ingrese gasto" />
-            </div>
-            <div class="filtros-botones">
-              <button class="btn-naranja" id="btn-limpiar-filtro">Limpiar</button>
-              <button class="btn-celeste" id="btn-aplicar-filtro">Aplicar filtros</button>
-            </div>
-          </section>
+          <h2>Filtros</h2>
+
+          <div class="formulario">
+            <label for="opciones-categorias">Categoría</label>
+            <select class="opciones-categorias" id="filtro-categoria"> 
+              <option value="">Todas</option>
+            </select>
+          </div>
+
+          <div class="formulario">
+            <label for="filtro-texto">Concepto:</label>
+            <input type="text" id="filtro-texto" placeholder="Ingrese gasto" />
+          </div>
+
+          <div class="formulario">
+            <label for="filtro-desde">Desde:</label>
+            <input type="date" id="filtro-desde" />
+          </div>
+
+          <div class="formulario">
+            <label for="filtro-hasta">Hasta:</label>
+            <input type="date" id="filtro-hasta" />
+          </div>
+
+          <div class="filtros-botones">
+            <button class="btn-naranja" id="btn-limpiar-filtro">Limpiar</button>
+            <button class="btn-celeste" id="btn-aplicar-filtro">Aplicar filtros</button>
+          </div>
+        </section>
         </div>
       </div>
 
-      <aside class="seccion-resumen">
-        <h2>Balance Total</h2>
-        <div class="resumen-card">
-          <span id="total">$0</span>
-        </div>
-        <div class="resumen-card">
-          <p>Gastos registrados</p>
-          <span id="cantidad">0</span>
-        </div>
-      </aside>
 <section class="seccion-estadisticas">
   <h3>Estadísticas</h3>
 
@@ -206,7 +195,6 @@
     <script src="js/funciones.js" type="module"></script>
     <script src="js/estadisticas.js" type="module"></script>
     <script src="js/filtros.js" type="module"></script>
-
     <script src="js/transacciones.js" type="module"></script>
     <script src="js/edicion.js" type="module"></script>
   </body>
