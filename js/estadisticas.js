@@ -1,3 +1,4 @@
+import { obtenerCategorias} from "./funciones.js";
 //leer gastos del localStorage 
 function obtenerGastos() {
   const datos = localStorage.getItem("gastos");
@@ -12,17 +13,20 @@ function calcularEstadisticas(gastos) {
       desglose: {}, masAlto: null, masReciente: null
     };
   }
-
+  const categorias = obtenerCategorias();
   const total    = gastos.reduce((acc, g) => acc + g.monto, 0);
   const promedio = total / gastos.length;
 
   const desglose = {};
   gastos.forEach(g => {
-    if (!desglose[g.categoria]) {
-      desglose[g.categoria] = { monto: 0, cantidad: 0 };
+
+    const categoriaObjetivo = categorias.find(cat => String(cat.id) === String(g.categoria));
+    const nombreCategoria = categoriaObjetivo ? categoriaObjetivo.nombre : g.categoria;
+    if (!desglose[nombreCategoria]) {
+      desglose[nombreCategoria] = { monto: 0, cantidad: 0 };
     }
-    desglose[g.categoria].monto    += g.monto;
-    desglose[g.categoria].cantidad += 1;
+    desglose[nombreCategoria].monto    += g.monto;
+    desglose[nombreCategoria].cantidad += 1;
   });
 
   const masAlto    = gastos.reduce((max, g) => g.monto > max.monto ? g : max, gastos[0]);

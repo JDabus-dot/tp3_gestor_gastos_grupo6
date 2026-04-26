@@ -1,4 +1,4 @@
-import { cargoJSON, obtenerCategorias, guardarCategoria, eliminarCategoria, actualizarCategoria, guardarValor, obtenerValor } from "./funciones.js";
+import { cargoJSON, obtenerCategorias, guardarCategoria, eliminarCategoria, actualizarCategoria, guardarValor, obtenerValor, obtenerGastos } from "./funciones.js";
 
 
 let categoriasJSON = [];
@@ -25,6 +25,7 @@ $(document).ready(function() {
             creoItem(categoria.color, categoria.icono, categoria.nombre, categoria.id);
             });
         }
+
     $('#formulario-categoria').on('submit', function(e) { // Atrapo la señal del submit y agrego la categoria
             let categoriaGasto = $('#input-gasto');
             e.preventDefault();
@@ -37,10 +38,10 @@ $(document).ready(function() {
     $('input-gasto').on('keypress', function(e) {
         if ( e.which === 13 || e.key === 'Enter' ) {
             e.preventDefault();
-            if ( validoInput($(this).val()) ) {
+            if ( validoInput($(this).val().trim()) ) {
                 $(this).blur();
             } else {
-                alert('El nombre de la categoria debe tener al menos 4 caracteres');
+                mensajeError('El nombre de la categoria debe tener al menos 4 caracteres');
             }
         }
     });
@@ -66,14 +67,31 @@ $(document).ready(function() {
     //Elimino de la categoria de la lista y el json
     $(document).on('click', '.btn-flat', function() {
         const id = $(this).attr('identificador'); 
-        
-        categoriasJSON = categoriasJSON.filter(categoria => categoria.id != id);
-        eliminarCategoria(id);
-        contadorCategorias -= 1; // decremento la cantidad de categorias y cambio el label que visualiza la cantidad
-        $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);  
-        $(this).closest('li.item-lista').remove();
-        console.log(categoriasJSON);
+        const gastos = obtenerGastos();
+
+        const hayGastos = gastos.find(elemento => elemento.categoria === id );
+
+        if ( hayGastos ) {
+            let categoria = categoriasJSON.find(cat => cat.id == id);
+            mensajeError(`No se puede eliminar la categoria ${categoria.nombre}, ya que tiene gastos asociados`);
+        }
+        else {
+            categoriasJSON = categoriasJSON.filter(categoria => categoria.id != id);
+            eliminarCategoria(id);
+            contadorCategorias -= 1; // decremento la cantidad de categorias y cambio el label que visualiza la cantidad
+            $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);  
+            $(this).closest('li.item-lista').remove();
+        }
     });
+
+    //oculto Mensaje Error
+    $(document).on('click', '#cerrar-error', function() {
+        $(".sobreposicion").css('visibility', 'hidden');
+        $(".mensaje-error").css('visibility', 'hidden');
+        $("#input-gasto").prop('disabled', false);
+        $("#btn-crear").prop('disabled', false);
+    });
+    
 });
 
 function actualizarElemento(elemento) {
@@ -81,10 +99,10 @@ function actualizarElemento(elemento) {
     let indice = categoriasJSON.findIndex(categoria => categoria.id == idJson);
     if ( indice !== -1 ) {
         categoriasJSON[indice].nombre = elemento.val();
-        actualizarCategoria(indice, elemento.val());
+        actualizarCategoria(indice, elemento.val().trim());
     }
     else {
-             alert('Categoria no encontrada, por favor refresque la pantalla!');
+             mensajeError('Categoria no encontrada, por favor refresque la pantalla!');
          } 
 }
 
@@ -113,12 +131,11 @@ function agregarCategoria(){
                         naranjaSuave: 'rgb(244, 162, 97)',
                         azulGrisaceo: 'rgb(38, 70, 83)'
                     };
-    if ( validoInput(categoriaGasto.val()) ) { // Si hay una categoria valida cargada procedo a: primero seleccionar la clase de color y luego al armado del elemento li
+    if ( validoInput(categoriaGasto.val().trim()) ) { // Si hay una categoria valida cargada procedo a: primero seleccionar la clase de color y luego al armado del elemento li
         categoriasJSON.some(categoria => {
-            if ( categoria.nombre.toUpperCase() === categoriaGasto.val().toUpperCase() ) {
+            if ( categoria.nombre.toUpperCase() === categoriaGasto.val().toUpperCase().trim() ) {
                 esUnico = 0;
-                alert("Categoria Existente!");
-                categoriaGasto.focus();
+                mensajeError(`La categoria: ${categoriaGasto.val().trim()}, ya existe!`);
                 return 1;
             }
             else {
@@ -146,7 +163,7 @@ function agregarCategoria(){
                     color = "azul-grisaceo";
                     break;
             }
-            item = creoCategoriaJSON(color, icono.text(), categoriaGasto.val(), Date.now());
+            item = creoCategoriaJSON(color, icono.text(), categoriaGasto.val().trim(), Date.now());
             guardarCategoria(item);
             categoriasJSON.push(item);
             creoItem(item.color, item.icono, item.nombre, item.id);
@@ -154,8 +171,7 @@ function agregarCategoria(){
             categoriaGasto.focus();
         }
     } else {
-        alert('El nombre de la categoria debe tener al menos 4 caracteres');
-        categoriaGasto.focus();
+        mensajeError('El nombre de la categoria debe tener al menos 4 caracteres');
     }
 }
 
@@ -183,4 +199,16 @@ function creoItem(color, icono, nombre, idBD) {
                         </li>`);
     contadorCategorias += 1; // incremento la cantidad de categorias y cambio el label que visualiza la cantidad
     $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);    
+}
+
+function mensajeError (mensaje) {
+    let sobreposicion = $(".sobreposicion");
+    let mensajeError = $(".mensaje-error");
+    let txtError = $("#texto-error");
+    
+    $("#input-gasto").prop('disabled', true);
+    $("#btn-crear").prop('disabled', true);
+    sobreposicion.css('visibility', 'visible');
+    mensajeError.css('visibility', 'visible');
+    txtError.text(mensaje);
 }
