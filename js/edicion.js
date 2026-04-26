@@ -1,6 +1,6 @@
 import {obtenerGastos, editarGasto} from "./funciones.js";
 import { actualizarVista } from "./render.js";
-
+import {validarFecha} from "./funciones.js";
 $(document).ready(function () { //ejecuta código cuando el DOM esté listo
     let idGasto; // variable para almacenar el id del gasto a editar
     let gastos = [];
@@ -40,11 +40,9 @@ $(document).ready(function () { //ejecuta código cuando el DOM esté listo
         if (gastoEditado.nombre.trim() === "") //si el nombre esta vacío, trim elimina espacios en blanco
             {return alert("El nombre del gasto no debe estar vacío");}
         
-        let fechahoy = new Date().toISOString().split("T")[0]; // convierte la fecha de hoy en str el TOISOString
-        // split("T") divide la fecha str en dos partes ej [24-04-2026, 12:15:33]
-        // [0] tomo el primer elemento del arreglo 
-        if (gastoEditado.fecha === "" || gastoEditado.fecha > fechahoy)
-            {return alert("La fecha no puede ser futura ni estar vacía");}
+        if (!validarFecha(gastoEditado.fecha)) {
+            return alert("La fecha no es válida o es anterior a 2000");
+        }
 
         if(gastoEditado.categoria === "")
             {return alert("Debe seleccionar una categoría");}

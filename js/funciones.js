@@ -31,13 +31,12 @@ export function obtenerCategorias() {
 }
 
 //Inicializar el JSON de Categorias 
-export function inicializarCategorias() {
+export async function inicializarCategorias() {
    const categoriasJSON = obtenerCategorias();
    if ( categoriasJSON.length === 0 && !obtenerValor("inicializado") ) {
-           cargoJSON("../data/categorias.json").then(datos => {
-              localStorage.setItem("categorias", JSON.stringify(datos));             
-              guardarValor("inicializado", 1);
-           });         
+           const datos = await cargoJSON("../data/categorias.json");
+           localStorage.setItem("categorias", JSON.stringify(datos));
+           guardarValor("inicializado", 1);
         }
 }
 
@@ -100,12 +99,22 @@ export function editarGasto(gasto) {
 
 }
 //Muestra las categorias en un select la hizo Marianela y JuliR
-export function cargarCategoriasEnSelect() {
+export async function cargarCategoriasEnSelect() {
+    await inicializarCategorias();
     const select = $(".opciones-categorias");
+    select.empty();
+    select.append('<option value="">Seleccionar</option>');
     const categorias = obtenerCategorias();
     categorias.forEach(cat => {
         select.append(
             '<option value="' + cat.id + '">' + cat.nombre + '</option>'
         );
     });
+}
+
+// Validación de fecha: admite gastos futuros pero no anterior a 2000
+export function validarFecha(fecha) {
+    const fechaMinima = new Date("2000-01-01");
+    const fechaGasto = new Date(fecha);
+    return fechaGasto >= fechaMinima && fechaGasto != "Invalid Date";
 }
