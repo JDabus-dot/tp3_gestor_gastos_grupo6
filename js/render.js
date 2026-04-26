@@ -36,3 +36,4 @@ export function renderizarGastos() {
 export function renderizarGastosFiltrados(gastosFiltrados) {
   htmlGastos(gastosFiltrados);
 }
+
