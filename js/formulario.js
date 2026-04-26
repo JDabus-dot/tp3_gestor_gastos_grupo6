@@ -1,5 +1,7 @@
 import { actualizarVista } from "./render.js";
-import { cargarCategoriasEnSelect, obtenerGastos, guardarGasto } from "./funciones.js";
+import { cargarCategoriasEnSelect, obtenerGastos, guardarGasto, validarFecha } from "./funciones.js";
+
+
 $(document).ready(function () {
   //Se traen los elementos del HTML y se guardan en variables
   const form = $("#formulario-gasto");
@@ -37,7 +39,7 @@ $(document).ready(function () {
       valido = false;
     }
 
-    if (fecha.val().trim() === "") {
+    if (!validarFecha(fecha.val().trim())) {
       fecha.addClass("error");
       valido = false;
     }
