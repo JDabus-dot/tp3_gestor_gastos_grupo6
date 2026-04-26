@@ -1,6 +1,7 @@
 # Trabajo Práctico N°3:
 Bienvenid@ al repositorio del Trabajo Práctico N°3 para la asignatura de Programación 3. En este proyecto el Grupo 6 ha desarrollado un Gestor de Gastos Personal, una aplicación web interactiva organizada con Flexbox que permite registrar, visualizar, filtrar y administrar gastos personales mediante JavaScript, localStorage y jQuery.
-Github Page:
+
+Github Page: https://jdabus-dot.github.io/tp3_gestor_gastos_grupo6/
 
 ## 🎯 Objetivos del TP
 * Manipulación del DOM: Utilizar JavaScript para crear, modificar y eliminar elementos HTML de forma dinámica en respuesta a las acciones del usuario.
