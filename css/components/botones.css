@@ -1,0 +1,83 @@
+.btn {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0px 0px 2px 3px var(--color-fondo);
+    margin: var(--space-s);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(0.90);
+    transition: 0.6s;
+}
+
+.btn-w400 {
+    width: 90%;
+    height: 40px;
+}
+
+.btn-xs {
+    width: auto;
+    height: 32px;
+}
+
+.btn-s {
+    width: auto;
+    height: 40px;
+}
+
+.btn-m {
+    width: auto;
+    height: 48px;
+}
+
+.btn-x {
+    width: auto;
+    height: 64;
+}
+
+.btn-naranja {
+    background: var(--color-secundario);
+    color: var(--color-texto);
+   }
+
+.btn-celeste{
+    background: var(--color-primario);
+    color: var(--color-texto);
+}
+
+.btn-flat {
+    background: none;
+    border: none;
+    font-weight: bold;
+    margin: var(--space-s);
+    font-size: 40px;
+}
+
+.btn-flat:hover {
+    color: var(--color-superficie);
+    cursor: pointer;
+}
+
+#btn-agregar-gasto {
+    font-size: 15px;
+    padding: var(--space-s) var(--space-s);
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+}
+
+@media screen and (max-width: 767px) {
+    .btn-w400 {
+        width: 300px;
+    }
+}

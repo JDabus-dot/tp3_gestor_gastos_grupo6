@@ -1,0 +1,61 @@
+.registro-filtros {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.modal{
+    display:none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-contenido{
+    display:flex;
+    flex-direction: column;
+    background-color: var(--color-superficie);
+    border-radius: 10px;
+    padding: var(--space-l);
+    box-shadow: 0px 0px 10px #272727;
+}
+
+.filtros-botones{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);   
+}
+
+.filtros-botones button {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: var(--space-s) var(--space-m);
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+}
+#btn-cerrar-filtros {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#filtros {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+#btn-abrir-filtros {
+    font-size: 15px;
+    padding: var(--space-s) var(--space-s);
+    border-radius: 10px;
+    font-weight: 600;
+}

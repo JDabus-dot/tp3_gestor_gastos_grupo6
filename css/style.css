@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+@import url("./components/header.css");
+@import url("./components/nav.css");
+@import url("./components/footer.css");
+
+
+/* Paleta de colores */
+:root {
+  --color-fondo: #f0f2f1;
+  --color-superficie: #ffffff;
+  --color-primario: #1a7a6e;
+  --color-secundario: #e85d35;
+  --color-terciario: #c94a24;
+  --color-cuartenario: #fde9e3;
+  --color-quinario: #2a9d8f;
+  --color-sextario: #f4a261;
+  --color-septario: #264653;
+  --color-texto: #14211e;
+  --color-texto-suave: #4a6560;
+  --space-xs: 4px;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+}
+
+body {
+    background-color: var(--color-fondo);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-texto);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    color: var(--color-primario);
+}
+
+h2 {
+    color: var(--color-secundario);
+}
+
+

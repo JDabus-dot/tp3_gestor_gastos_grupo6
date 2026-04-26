@@ -1,0 +1,87 @@
+/* ── Sección principal ──────────────────────────────────────── */
+.seccion-estadisticas {
+  flex: 1;
+  background-color: var(--color-superficie);
+  padding: var(--space-l);
+  border-radius: 10px;
+}
+
+.seccion-estadisticas h3 {
+  color: var(--color-secundario);
+  font-family: "DM Mono", monospace;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-m);
+}
+
+/* ── Grilla de tarjetas resumen ─────────────────────────────── */
+.est-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-s);
+  margin-bottom: var(--space-l);
+}
+
+.est-card {
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-cuartenario);
+  border-radius: 8px;
+  padding: var(--space-m) var(--space-m);
+}
+
+.est-label {
+  font-size: 12px;
+  color: var(--color-texto-suave);
+  margin: 0 0 4px 0;
+}
+
+.est-valor {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-texto);
+  display: block;
+}
+
+/* tarjeta destacada usa el color primario del grupo */
+.est-card.destacado {
+  border-color: var(--color-primario);
+}
+
+.est-card.destacado .est-valor {
+  color: var(--color-primario);
+}
+
+/* ── Máximos ────────────────────────────────────────────────── */
+.maximos {
+  margin-top: var(--space-l);
+  border-top: 1px solid var(--color-cuartenario);
+  padding-top: var(--space-s);
+}
+
+.maximo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-s) 0;
+  border-bottom: 1px solid var(--color-fondo);
+  font-size: 13px;
+}
+
+.maximo-item:last-child {
+  border-bottom: none;
+}
+
+.maximo-label {
+  color: var(--color-texto-suave);
+}
+
+.maximo-valor {
+  font-weight: 500;
+  color: var(--color-texto);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .est-grid {
+    grid-template-columns: 1fr;
+  }
+}

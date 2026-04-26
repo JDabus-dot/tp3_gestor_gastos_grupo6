@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Gastos</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <link rel="icon" href="assets/favicon/costo.png" />
+  </head>
+
+  <body class="cuerpo">
+    <header class="menu">
+      <h1>Gestor de Gastos</h1>
+      <nav class="nav">
+        <h2 class="link-h2"><a class="link" href="./index.html">Dashboard</a></h2>
+        <h2 class="link-h2"><a class="link" href="./pages/categorias.html">Categorias</a></h2>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="seccion-formulario">
+        <h2>Nuevo gasto</h2>
+        <form id="formulario-gasto" class="formulario">
+          <div class="formulario">
+            <label for="concepto">Concepto</label>
+            <input type="text" id="nombre" name="concepto" />
+          </div>
+
+          <div class="formulario">
+            <label for="monto">Monto</label>
+            <input type="number" step="0.01" id="monto" name="monto" />
+          </div>
+
+          <div class="formulario">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria" class="opciones-categorias">
+              <option value="">Seleccionar</option>
+            </select>
+          </div>
+
+          <div class="formulario">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" />
+          </div>
+
+          <button type="submit" class="btn btn-celeste btn-w400" id="btn-agregar-gasto">Agregar</button>
+        </form>
+      </section>
+
+      <section class="seccion-lista">
+        <div class="registro-filtros">
+          <h2>Registro de Transacciones</h2>
+          <button class="btn btn-naranja" id="btn-abrir-filtros">Filtros</button>
+        </div>
+        <div class="titulos-columnas">
+          <span>Nombre</span>
+          <span>Categoria</span>
+          <span>Monto</span>
+          <span>Fecha</span>
+          <span>Acción</span>
+        </div>
+        <ul id="lista-gastos"></ul>
+      </section>
+
+      <!--Sección Edición de gastos-->      <!-- Agregó Mati -->
+
+      <div id="popup-de-edicion" class="popup-editar">
+        <form id="formulario-edicion" >
+          <div>
+            <label for="concepto-edicion">Concepto</label>
+            <input type="text" id="concepto-edicion" name="concepto" />
+          </div>
+
+          <div >
+            <label for="monto-edicion">Monto</label>
+            <input type="number" step="0.01" id="monto-edicion" name="monto" />
+          </div>
+
+          <div>
+              <label for="edicion-categoria">Categoría</label>
+              <select class="opciones-categorias" id="edicion-categoria">
+                <option value="">Todas</option>
+              </select>
+          </div>
+
+          <div >
+            <label for="fecha-edicion">Fecha</label>
+            <input type="date" id="fecha-edicion" name="fecha" />
+          </div>
+
+          <button type="submit" >Guardar cambios</button>
+          <button type="button" id="btn-cerrar-edicion"> Salir </button>
+        </form>
+      </div>
+
+      <div id="popup-de-confirmacion" class="popup-confirmar">
+          <p> Gasto editado exitosamente </p>
+      </div>
+      
+
+      <!-- Seccion filtros -->
+      <div id="modal-filtros" class="modal">
+        <div class="modal-contenido">
+          <button id="btn-cerrar-filtros">X</button>
+
+          <section id="filtros">
+            <h2>Filtros</h2>
+
+            <div class="formulario">
+              <label for="opciones-categorias">Categoría</label>
+              <select class="opciones-categorias" id="filtro-categoria">
+                <option value="">Todas</option>
+              </select>
+            </div>
+
+            <div class="formulario">
+              <label for="filtro-texto">Concepto:</label>
+              <input type="text" id="filtro-texto" placeholder="Ingrese gasto" />
+            </div>
+
+            <div class="formulario">
+              <label for="filtro-desde">Desde:</label>
+              <input type="date" id="filtro-desde" />
+            </div>
+
+            <div class="formulario">
+              <label for="filtro-hasta">Hasta:</label>
+              <input type="date" id="filtro-hasta" />
+            </div>
+
+            <div class="filtros-botones">
+              <button class="btn-naranja" id="btn-limpiar-filtro">Limpiar</button>
+              <button class="btn-celeste" id="btn-aplicar-filtro">Aplicar filtros</button>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <section class="seccion-estadisticas">
+        <h3>Estadísticas</h3>
+
+        <div class="est-grid">
+          <div class="est-card destacado">
+            <p class="est-label">Total acumulado</p>
+            <span class="est-valor" id="est-total">$0</span>
+          </div>
+          <div class="est-card">
+            <p class="est-label">Cantidad de gastos</p>
+            <span class="est-valor" id="est-cantidad">0</span>
+          </div>
+          <div class="est-card">
+            <p class="est-label">Promedio por gasto</p>
+            <span class="est-valor" id="est-promedio">$0</span>
+          </div>
+          <div class="est-card">
+            <p class="est-label">Categorías activas</p>
+            <span class="est-valor" id="est-categorias">0</span>
+          </div>
+        </div>
+
+        <div class="maximos">
+          <div class="maximo-item">
+            <span class="maximo-label">Gasto más alto</span>
+            <span class="maximo-valor" id="est-max-nombre">—</span>
+          </div>
+          <div class="maximo-item">
+            <span class="maximo-label">Gasto más reciente</span>
+            <span class="maximo-valor" id="est-reciente">—</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie-pagina">
+      <h3 class="texto-footer">
+        (C) 2026 - Gestor de Gastos - Baldres A. - Belardinelli M. - Dabús J. - Ledesma Gonzalez M.
+        - Riedinger J. - Zivano C.
+      </h3>
+    </footer>
+    <script src="js/inicializaciones.js" type="module"></script>
+    <script src="js/formulario.js" type="module"></script>
+    <script src="js/funciones.js" type="module"></script>
+    <script src="js/estadisticas.js" type="module"></script>
+    <script src="js/filtros.js" type="module"></script>
+    <script src="js/transacciones.js" type="module"></script>
+    <script src="js/edicion.js" type="module"></script>
+  </body>
+</html>
