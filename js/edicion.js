@@ -1,22 +1,22 @@
-import { cargoJSON, obtenerCategorias, guardarCategoria, eliminarCategoria, 
-    actualizarCategoria, guardarValor, obtenerValor, guardarGasto, obtenerGastos, editarGasto} from "./funciones.js";
-import { renderizarGastos } from "./render.js";
-
+import {obtenerGastos, editarGasto} from "./funciones.js";
+import { actualizarVista } from "./render.js";
 
 $(document).ready(function () { //ejecuta código cuando el DOM esté listo
     let idGasto; // variable para almacenar el id del gasto a editar
-    let gastos=JSON.parse(localStorage.getItem("gastos")) || []; // importante traerme los datos
+    let gastos = [];
     $(this).click(function (e) {
-        if (!$(e.target).hasClass("btn-editar")) return; // si el elemento clickeado no tiene la clase btn-editar, no hace nada
-        $("#formulario-edicion")[0].reset(); // limpia el formulario
-        $("#popup-de-edicion").addClass("popup-activo"); // muestra el popup con flex luego de abrirlo
-        idGasto = $(e.target).closest("li").attr("id"); // obtiene el id del gasto a editar
-        const gasto = gastos.find(g => g.id == idGasto);
-        $("#concepto-edicion").val(gasto.nombre);
-        $("#monto-edicion").val(gasto.monto);
-        $("#edicion-categoria").val(gasto.categoria);
-        $("#fecha-edicion").val(gasto.fecha);
-    });
+        gastos = obtenerGastos(); // traigo los gastos para tenerlos disponibles al hacer clic en editar; va aqui porque esta dentro del ready (luego del reload queda caragdo y se vee)
+        if ($(e.target).hasClass("btn-editar")) { // si el elemento clickeado tiene la clase btn-editar, hacé: 
+            // $("#formulario-edicion")[0].reset(); // limpia el formulario
+            $("#popup-de-edicion").addClass("popup-activo"); // muestra el popup con flex luego de abrirlo
+            idGasto = $(e.target).closest("li").attr("id"); // obtiene el id del gasto a editar
+            const gasto = gastos.find(g => g.id == idGasto);
+            console.log(gasto);
+            $("#concepto-edicion").val(gasto.nombre);
+            $("#monto-edicion").val(gasto.monto);
+            $("#edicion-categoria").val(gasto.categoria);
+            $("#fecha-edicion").val(gasto.fecha);
+        }});
 
     $("#btn-cerrar-edicion").click(function () {
         $("#popup-de-edicion").removeClass("popup-activo"); // oculta el popup al hacer clic en el botón de cerrar
@@ -57,6 +57,6 @@ $(document).ready(function () { //ejecuta código cuando el DOM esté listo
 
         $("#popup-de-edicion").removeClass("popup-activo"); // oculta el popup después de guardar los cambios
 
-        renderizarGastos();
+        actualizarVista();
     });
 });
