@@ -40,7 +40,7 @@ export function renderizarGastosFiltrados(gastosFiltrados) {
 
 //mostrar en el HTML con jQuery
 function mostrarEstadisticas(estadisticas) {
-  $("#est-total").text("$" + estadisticas.total);
+  $("#est-total").text("$" + Number(estadisticas.total));
   $("#est-cantidad").text(estadisticas.cantidad);
   $("#est-promedio").text("$" + Math.round(estadisticas.promedio));
   $("#est-categorias").text(estadisticas.catActivas);
