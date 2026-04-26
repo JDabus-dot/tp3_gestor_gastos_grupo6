@@ -1,6 +1,6 @@
 import { renderizarGastos } from "./render.js";
 import { cargarCategoriasEnSelect, obtenerGastos, guardarGasto } from "./funciones.js";
-
+import { recalcularEstadisticas } from "./estadisticas.js";
 $(document).ready(function() {
     //Se traen los elementos del HTML y se guardan en variables
     const form= $("#formulario-gasto");
@@ -9,7 +9,7 @@ renderizarGastos();
 cargarCategoriasEnSelect(); 
 
 //detecta cuando el usuario hace un submit y evita que la página se recargue
-const nombre= $("#nombre");
+    const nombre= $("#nombre");
     const monto= $("#monto");
     const categoria= $("#categoria");
     const fecha= $("#fecha");
@@ -52,11 +52,9 @@ form.on("submit", (e) => {
         fecha: fecha.val().trim()  
     }
     guardarGasto(nuevoGasto);
-
     form[0].reset();//limpia el formulario
-
     renderizarGastos();//actualiza la pantalla
-    
+    recalcularEstadisticas();
 }); 
 });
 
