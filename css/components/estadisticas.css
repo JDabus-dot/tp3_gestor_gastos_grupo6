@@ -8,33 +8,33 @@
 
 .seccion-estadisticas h3 {
   color: var(--color-secundario);
-  font-family: 'DM Mono', monospace;
+  font-family: "DM Mono", monospace;
   letter-spacing: 1px;
   margin-bottom: var(--space-m);
 }
 
 /* ── Grilla de tarjetas resumen ─────────────────────────────── */
-.stats-grid {
+.est-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-s);
   margin-bottom: var(--space-l);
 }
 
-.stat-card {
+.est-card {
   background-color: var(--color-fondo);
   border: 1px solid var(--color-cuartenario);
   border-radius: 8px;
   padding: var(--space-m) var(--space-m);
 }
 
-.stat-label {
+.est-label {
   font-size: 12px;
   color: var(--color-texto-suave);
   margin: 0 0 4px 0;
 }
 
-.stat-valor {
+.est-valor {
   font-size: 20px;
   font-weight: 500;
   color: var(--color-texto);
@@ -42,52 +42,12 @@
 }
 
 /* tarjeta destacada usa el color primario del grupo */
-.stat-card.destacado {
+.est-card.destacado {
   border-color: var(--color-primario);
 }
 
-.stat-card.destacado .stat-valor {
+.est-card.destacado .est-valor {
   color: var(--color-primario);
-}
-
-/* ── Desglose por categoría ─────────────────────────────────── */
-.categorias-titulo {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-texto);
-  margin: 0 0 var(--space-s) 0;
-}
-
-.categoria-item {
-  margin-bottom: var(--space-m);
-}
-
-.categoria-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  color: var(--color-texto-suave);
-  margin-bottom: var(--space-xs);
-}
-
-.categoria-nombre {
-  font-weight: 500;
-  color: var(--color-texto);
-}
-
-.barra-fondo {
-  background-color: var(--color-fondo);
-  border-radius: 4px;
-  height: 8px;
-  overflow: hidden;
-  border: 1px solid var(--color-cuartenario);
-}
-
-.barra-relleno {
-  height: 8px;
-  border-radius: 4px;
-  background-color: var(--color-primario);
-  transition: width 0.4s ease;
 }
 
 /* ── Máximos ────────────────────────────────────────────────── */
@@ -121,7 +81,7 @@
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .stats-grid {
+  .est-grid {
     grid-template-columns: 1fr;
   }
 }
