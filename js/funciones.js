@@ -88,12 +88,21 @@ export function cargoJSON(uri) {
     });
 }
 
-//Muestra las categorias en un select
+export function editarGasto(gasto) {
+  const gastos = JSON.parse(localStorage.getItem("gastos")) || [];
+  const indice_id = gastos.findIndex( // indice_id tomará el valor del indice en el cual g = gasto.id
+    (g) => // g es una variable que recorre cada elemnto del array []
+    g.id == gasto.id); 
+  if (indice_id !== -1) {  // si el indice es distinto a -1, es xq lo encontró
+    gastos[indice_id] = gasto; // cambbio los datos del arreglo
+    localStorage.setItem("gastos", JSON.stringify(gastos)); 
+  }
+
+}
+//Muestra las categorias en un select la hizo Marianela y JuliR
 export function cargarCategoriasEnSelect() {
     const select = $(".opciones-categorias");
     const categorias = obtenerCategorias();
-
-
     categorias.forEach(cat => {
         select.append(
             '<option value="' + cat.id + '">' + cat.nombre + '</option>'

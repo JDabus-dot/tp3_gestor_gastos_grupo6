@@ -63,6 +63,47 @@
         <ul id="lista-gastos"></ul>
       </section>
 
+      <!--Sección Edición de gastos-->      <!-- Agregó Mati -->
+
+      <div id="popup-de-edicion" class="popup-editar">
+        <form id="formulario-edicion" >
+          <div>
+            <label for="concepto-edicion">Concepto</label>
+            <input type="text" id="concepto-edicion" name="concepto" />
+          </div>
+
+          <div >
+            <label for="monto-edicion">Monto</label>
+            <input type="number" id="monto-edicion" name="monto" />
+          </div>
+
+          <div>
+              <label for="edicion-categoria">Categoría</label>
+              <select id="edicion-categoria">
+                <option value="">Seleccionar</option>
+                <option value="comida">Comida</option>
+                <option value="transporte">Transporte</option>
+                <option value="servicios">Servicios</option>
+                <option value="deporte">Deporte</option>
+                <option value="ocio">Ocio</option>
+              </select>
+          </div>
+
+          <div >
+            <label for="fecha-edicion">Fecha</label>
+            <input type="date" id="fecha-edicion" name="fecha" />
+          </div>
+
+          <button type="submit" >Guardar cambios</button>
+          <button type="button" id="btn-cerrar-edicion"> Salir </button>
+        </form>
+      </div>
+
+      <div id="popup-de-confirmacion" class="popup-confirmar">
+          <p> Gasto editado exitosamente </p>
+      </div>
+      
+
       <!-- Seccion filtros -->
       <div id="modal-filtros" class="modal">
         <div class="modal-contenido">
@@ -148,5 +189,6 @@
     <script src="js/estadisticas.js" type="module"></script>
     <script src="js/filtros.js" type="module"></script>
     <script src="js/transacciones.js" type="module"></script>
+    <script src="js/edicion.js" type="module"></script>
   </body>
 </html>
