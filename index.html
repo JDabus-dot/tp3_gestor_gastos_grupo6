@@ -44,7 +44,7 @@
             <input type="date" id="fecha" name="fecha" />
           </div>
 
-          <button type="submit" class=" btn btn-celeste" id="btn-agregar-gasto">Agregar</button>
+          <button type="submit" class="btn btn-celeste" id="btn-agregar-gasto">Agregar</button>
         </form>
       </section>
 
@@ -69,78 +69,71 @@
           <button id="btn-cerrar-filtros">X</button>
 
           <section id="filtros">
-          <h2>Filtros</h2>
+            <h2>Filtros</h2>
 
-          <div class="formulario">
-            <label for="opciones-categorias">Categoría</label>
-            <select class="opciones-categorias" id="filtro-categoria"> 
-              <option value="">Todas</option>
-            </select>
-          </div>
+            <div class="formulario">
+              <label for="opciones-categorias">Categoría</label>
+              <select class="opciones-categorias" id="filtro-categoria">
+                <option value="">Todas</option>
+              </select>
+            </div>
 
-          <div class="formulario">
-            <label for="filtro-texto">Concepto:</label>
-            <input type="text" id="filtro-texto" placeholder="Ingrese gasto" />
-          </div>
+            <div class="formulario">
+              <label for="filtro-texto">Concepto:</label>
+              <input type="text" id="filtro-texto" placeholder="Ingrese gasto" />
+            </div>
 
-          <div class="formulario">
-            <label for="filtro-desde">Desde:</label>
-            <input type="date" id="filtro-desde" />
-          </div>
+            <div class="formulario">
+              <label for="filtro-desde">Desde:</label>
+              <input type="date" id="filtro-desde" />
+            </div>
 
-          <div class="formulario">
-            <label for="filtro-hasta">Hasta:</label>
-            <input type="date" id="filtro-hasta" />
-          </div>
+            <div class="formulario">
+              <label for="filtro-hasta">Hasta:</label>
+              <input type="date" id="filtro-hasta" />
+            </div>
 
-          <div class="filtros-botones">
-            <button class="btn-naranja" id="btn-limpiar-filtro">Limpiar</button>
-            <button class="btn-celeste" id="btn-aplicar-filtro">Aplicar filtros</button>
-          </div>
-        </section>
+            <div class="filtros-botones">
+              <button class="btn-naranja" id="btn-limpiar-filtro">Limpiar</button>
+              <button class="btn-celeste" id="btn-aplicar-filtro">Aplicar filtros</button>
+            </div>
+          </section>
         </div>
       </div>
 
-<section class="seccion-estadisticas">
-  <h3>Estadísticas</h3>
+      <section class="seccion-estadisticas">
+        <h3>Estadísticas</h3>
 
-  <div class="stats-grid">
-    <div class="stat-card destacado">
-      <p class="stat-label">Total acumulado</p>
-      <span class="stat-valor" id="est-total">$0</span>
-    </div>
-    <div class="stat-card">
-      <p class="stat-label">Cantidad de gastos</p>
-      <span class="stat-valor" id="est-cantidad">0</span>
-    </div>
-    <div class="stat-card">
-      <p class="stat-label">Promedio por gasto</p>
-      <span class="stat-valor" id="est-promedio">$0</span>
-    </div>
-    <div class="stat-card">
-      <p class="stat-label">Categorías activas</p>
-      <span class="stat-valor" id="est-categorias">0</span>
-    </div>
-  </div>
+        <div class="est-grid">
+          <div class="est-card destacado">
+            <p class="est-label">Total acumulado</p>
+            <span class="est-valor" id="est-total">$0</span>
+          </div>
+          <div class="est-card">
+            <p class="est-label">Cantidad de gastos</p>
+            <span class="est-valor" id="est-cantidad">0</span>
+          </div>
+          <div class="est-card">
+            <p class="est-label">Promedio por gasto</p>
+            <span class="est-valor" id="est-promedio">$0</span>
+          </div>
+          <div class="est-card">
+            <p class="est-label">Categorías activas</p>
+            <span class="est-valor" id="est-categorias">0</span>
+          </div>
+        </div>
 
-  <p class="categorias-titulo">Desglose por categoría</p>
-  <div id="est-desglose">
-
-  </div>
-
-  <div class="maximos">
-    <div class="maximo-item">
-      <span class="maximo-label">Gasto más alto</span>
-      <span class="maximo-valor" id="est-max-nombre">—</span>
-    </div>
-    <div class="maximo-item">
-      <span class="maximo-label">Gasto más reciente</span>
-      <span class="maximo-valor" id="est-reciente">—</span>
-    </div>
-  </div>
-
-</section>
-      
+        <div class="maximos">
+          <div class="maximo-item">
+            <span class="maximo-label">Gasto más alto</span>
+            <span class="maximo-valor" id="est-max-nombre">—</span>
+          </div>
+          <div class="maximo-item">
+            <span class="maximo-label">Gasto más reciente</span>
+            <span class="maximo-valor" id="est-reciente">—</span>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="pie-pagina">

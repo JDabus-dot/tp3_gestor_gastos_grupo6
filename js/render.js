@@ -1,3 +1,4 @@
+import { calcularEstadisticas } from "./estadisticas.js";
 import { obtenerCategorias, obtenerGastos } from "./funciones.js";
 
 function htmlGastos(gastos) {
@@ -35,4 +36,28 @@ export function renderizarGastos() {
 
 export function renderizarGastosFiltrados(gastosFiltrados) {
   htmlGastos(gastosFiltrados);
+}
+
+//mostrar en el HTML con jQuery
+function mostrarEstadisticas(estadisticas) {
+  $("#est-total").text("$" + estadisticas.total);
+  $("#est-cantidad").text(estadisticas.cantidad);
+  $("#est-promedio").text("$" + Math.round(estadisticas.promedio));
+  $("#est-categorias").text(estadisticas.catActivas);
+
+  $("#est-max-nombre").text(
+    estadisticas.masAlto ? `${estadisticas.masAlto.nombre} — $${estadisticas.masAlto.monto}` : "—",
+  );
+  $("#est-reciente").text(
+    estadisticas.masReciente
+      ? `${estadisticas.masReciente.nombre} · ${estadisticas.masReciente.fecha}`
+      : "—",
+  );
+}
+
+export function actualizarVista() {
+  const gastos = obtenerGastos();
+  renderizarGastos();
+  const estadisticas = calcularEstadisticas(gastos);
+  mostrarEstadisticas(estadisticas);
 }
