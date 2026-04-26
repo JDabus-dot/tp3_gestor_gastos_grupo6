@@ -38,7 +38,7 @@ $(document).ready(function() {
     $('input-gasto').on('keypress', function(e) {
         if ( e.which === 13 || e.key === 'Enter' ) {
             e.preventDefault();
-            if ( validoInput($(this).val()) ) {
+            if ( validoInput($(this).val().trim()) ) {
                 $(this).blur();
             } else {
                 mensajeError('El nombre de la categoria debe tener al menos 4 caracteres');
@@ -97,7 +97,7 @@ function actualizarElemento(elemento) {
     let indice = categoriasJSON.findIndex(categoria => categoria.id == idJson);
     if ( indice !== -1 ) {
         categoriasJSON[indice].nombre = elemento.val();
-        actualizarCategoria(indice, elemento.val());
+        actualizarCategoria(indice, elemento.val().trim());
     }
     else {
              mensajeError('Categoria no encontrada, por favor refresque la pantalla!');
@@ -129,11 +129,11 @@ function agregarCategoria(){
                         naranjaSuave: 'rgb(244, 162, 97)',
                         azulGrisaceo: 'rgb(38, 70, 83)'
                     };
-    if ( validoInput(categoriaGasto.val()) ) { // Si hay una categoria valida cargada procedo a: primero seleccionar la clase de color y luego al armado del elemento li
+    if ( validoInput(categoriaGasto.val().trim()) ) { // Si hay una categoria valida cargada procedo a: primero seleccionar la clase de color y luego al armado del elemento li
         categoriasJSON.some(categoria => {
-            if ( categoria.nombre.toUpperCase() === categoriaGasto.val().toUpperCase() ) {
+            if ( categoria.nombre.toUpperCase() === categoriaGasto.val().toUpperCase().trim() ) {
                 esUnico = 0;
-                mensajeError(`La categoria: ${categoriaGasto.val()}, ya existe!`);
+                mensajeError(`La categoria: ${categoriaGasto.val().trim()}, ya existe!`);
                 categoriaGasto.focus();
                 return 1;
             }
@@ -162,7 +162,7 @@ function agregarCategoria(){
                     color = "azul-grisaceo";
                     break;
             }
-            item = creoCategoriaJSON(color, icono.text(), categoriaGasto.val(), Date.now());
+            item = creoCategoriaJSON(color, icono.text(), categoriaGasto.val().trim(), Date.now());
             guardarCategoria(item);
             categoriasJSON.push(item);
             creoItem(item.color, item.icono, item.nombre, item.id);
