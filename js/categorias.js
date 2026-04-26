@@ -88,6 +88,8 @@ $(document).ready(function() {
     $(document).on('click', '#cerrar-error', function() {
         $(".sobreposicion").css('visibility', 'hidden');
         $(".mensaje-error").css('visibility', 'hidden');
+        $("#input-gasto").prop('disabled', false);
+        $("#btn-crear").prop('disabled', false);
     });
     
 });
@@ -134,7 +136,6 @@ function agregarCategoria(){
             if ( categoria.nombre.toUpperCase() === categoriaGasto.val().toUpperCase().trim() ) {
                 esUnico = 0;
                 mensajeError(`La categoria: ${categoriaGasto.val().trim()}, ya existe!`);
-                categoriaGasto.focus();
                 return 1;
             }
             else {
@@ -171,7 +172,6 @@ function agregarCategoria(){
         }
     } else {
         mensajeError('El nombre de la categoria debe tener al menos 4 caracteres');
-        categoriaGasto.focus();
     }
 }
 
@@ -205,7 +205,9 @@ function mensajeError (mensaje) {
     let sobreposicion = $(".sobreposicion");
     let mensajeError = $(".mensaje-error");
     let txtError = $("#texto-error");
-
+    
+    $("#input-gasto").prop('disabled', true);
+    $("#btn-crear").prop('disabled', true);
     sobreposicion.css('visibility', 'visible');
     mensajeError.css('visibility', 'visible');
     txtError.text(mensaje);
