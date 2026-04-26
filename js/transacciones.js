@@ -1,5 +1,5 @@
 import { guardarGasto, eliminarGasto } from "./funciones.js";
-import { renderizarGastos } from "./render.js";
+import { actualizarVista, renderizarGastos } from "./render.js";
 
 $(document).ready(function () {
   renderizarGastos();
@@ -8,7 +8,7 @@ $(document).ready(function () {
     if (confirm("¿Estas seguro de eliminar este gasto?")) {
       const idGasto = $(this).closest("li").attr("id");
       eliminarGasto(idGasto);
-      renderizarGastos();
+      actualizarVista();
     }
   });
 });
