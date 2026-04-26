@@ -44,12 +44,13 @@
 
 #btn-agregar-gasto {
     font-size: 15px;
+    align-self: center;
     padding: var(--space-s) var(--space-s);
     border-radius: 10px;
     font-weight: 600;
     border: none;
     cursor: pointer;
-
+    margin-top: var(--space-m);
 }
 
 
