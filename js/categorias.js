@@ -1,4 +1,4 @@
-import { cargoJSON, obtenerCategorias, guardarCategoria, eliminarCategoria, actualizarCategoria, guardarValor, obtenerValor } from "./funciones.js";
+import { cargoJSON, obtenerCategorias, guardarCategoria, eliminarCategoria, actualizarCategoria, guardarValor, obtenerValor, obtenerGastos } from "./funciones.js";
 
 
 let categoriasJSON = [];
@@ -25,6 +25,7 @@ $(document).ready(function() {
             creoItem(categoria.color, categoria.icono, categoria.nombre, categoria.id);
             });
         }
+
     $('#formulario-categoria').on('submit', function(e) { // Atrapo la señal del submit y agrego la categoria
             let categoriaGasto = $('#input-gasto');
             e.preventDefault();
@@ -40,7 +41,7 @@ $(document).ready(function() {
             if ( validoInput($(this).val()) ) {
                 $(this).blur();
             } else {
-                alert('El nombre de la categoria debe tener al menos 4 caracteres');
+                mensajeError('El nombre de la categoria debe tener al menos 4 caracteres');
             }
         }
     });
@@ -66,14 +67,29 @@ $(document).ready(function() {
     //Elimino de la categoria de la lista y el json
     $(document).on('click', '.btn-flat', function() {
         const id = $(this).attr('identificador'); 
-        
-        categoriasJSON = categoriasJSON.filter(categoria => categoria.id != id);
-        eliminarCategoria(id);
-        contadorCategorias -= 1; // decremento la cantidad de categorias y cambio el label que visualiza la cantidad
-        $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);  
-        $(this).closest('li.item-lista').remove();
-        console.log(categoriasJSON);
+        const gastos = obtenerGastos();
+
+        const hayGastos = gastos.find(elemento => elemento.categoria === id );
+
+        if ( hayGastos ) {
+            let categoria = categoriasJSON.find(cat => cat.id == id);
+            mensajeError(`No se puede eliminar la categoria ${categoria.nombre}, ya que tiene gastos asociados`);
+        }
+        else {
+            categoriasJSON = categoriasJSON.filter(categoria => categoria.id != id);
+            eliminarCategoria(id);
+            contadorCategorias -= 1; // decremento la cantidad de categorias y cambio el label que visualiza la cantidad
+            $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);  
+            $(this).closest('li.item-lista').remove();
+        }
     });
+
+    //oculto Mensaje Error
+    $(document).on('click', '#cerrar-error', function() {
+        $(".sobreposicion").css('visibility', 'hidden');
+        $(".mensaje-error").css('visibility', 'hidden');
+    });
+    
 });
 
 function actualizarElemento(elemento) {
@@ -84,7 +100,7 @@ function actualizarElemento(elemento) {
         actualizarCategoria(indice, elemento.val());
     }
     else {
-             alert('Categoria no encontrada, por favor refresque la pantalla!');
+             mensajeError('Categoria no encontrada, por favor refresque la pantalla!');
          } 
 }
 
@@ -117,7 +133,7 @@ function agregarCategoria(){
         categoriasJSON.some(categoria => {
             if ( categoria.nombre.toUpperCase() === categoriaGasto.val().toUpperCase() ) {
                 esUnico = 0;
-                alert("Categoria Existente!");
+                mensajeError(`La categoria: ${categoriaGasto.val()}, ya existe!`);
                 categoriaGasto.focus();
                 return 1;
             }
@@ -154,7 +170,7 @@ function agregarCategoria(){
             categoriaGasto.focus();
         }
     } else {
-        alert('El nombre de la categoria debe tener al menos 4 caracteres');
+        mensajeError('El nombre de la categoria debe tener al menos 4 caracteres');
         categoriaGasto.focus();
     }
 }
@@ -183,4 +199,14 @@ function creoItem(color, icono, nombre, idBD) {
                         </li>`);
     contadorCategorias += 1; // incremento la cantidad de categorias y cambio el label que visualiza la cantidad
     $('#cantidad-categorias').text(`${contadorCategorias} categorias cargadas`);    
+}
+
+function mensajeError (mensaje) {
+    let sobreposicion = $(".sobreposicion");
+    let mensajeError = $(".mensaje-error");
+    let txtError = $("#texto-error");
+
+    sobreposicion.css('visibility', 'visible');
+    mensajeError.css('visibility', 'visible');
+    txtError.text(mensaje);
 }
